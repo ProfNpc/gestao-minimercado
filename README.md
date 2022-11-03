@@ -15,7 +15,7 @@ Repositório da equipe do projeto "Gestão de Minimercado"
 
 `git config --global user.email "seu_email@qualquercoisa.com"`
 
-3 - Execute os comandos abaixo para configurar os caracteres de fim-de-linha
+4 - Execute os comandos abaixo para configurar os caracteres de fim-de-linha
 
 `git config --global core.autocrlf true`
 
