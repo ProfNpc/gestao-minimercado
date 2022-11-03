@@ -5,9 +5,11 @@ Repositório da equipe do projeto "Gestão de Minimercado"
 
 ### Preparação ###
 
-1 - Abra o git bash
+1 - Abra o Vscode
 
-2 - Execute os seguintes comandos para configurar o nome do seu usuário e o seu e-mail
+2 - Abra o terminal
+
+3 - Execute os seguintes comandos para configurar o nome do seu usuário e o seu e-mail
 
 `git config --global user.name "Seu Nome"`
 
