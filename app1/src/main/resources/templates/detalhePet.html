@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<body>
+		Detalhe Pet
+		<br>
+		Id = <span th:text="${id}"></span>
+		<br>
+		Nome = <span th:text="${Pet.nome}"></span>
+		<br>
+		Raça = <span th:text="${Pet.raca}"></span>
+		<br>
+		Idade = <span th:text="${Pet.idade}"></span>
+		<br>
+		<a href="http://localhost:2701/pet/list"><button>Voltar</button></a>
+	</body>
+</html>
