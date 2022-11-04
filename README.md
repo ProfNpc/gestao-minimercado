@@ -5,9 +5,11 @@ Repositório da equipe do projeto "Gestão de Minimercado"
 
 ### Preparação ###
 
-1 - Abra o Vscode
+1 - Baixe o git (Baixei neste link:https://git-scm.com/downloads)
 
-2 - Abra o terminal
+2 - Abra o Vscode ou use o gitbash
+
+2.1 - Caso opte pelo Vscode abra o terminal
 
 3 - Execute os seguintes comandos para configurar o nome do seu usuário e o seu e-mail
 
