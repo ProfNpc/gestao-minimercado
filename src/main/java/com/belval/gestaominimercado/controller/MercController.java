@@ -17,7 +17,7 @@ public class MercController {
 		return "Login";
 	}
 	
-	@GetMapping("/cadastroM")
+	@GetMapping("/cadastrom")
 	public String cadastroM(Model model) {
 		return "RegistroMercado";
 	}
