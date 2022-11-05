@@ -14,7 +14,7 @@ letter-spacing: 2px;
 display: flex;
 letter-spacing: center;
 align-items:center;
-background:  rgb(142, 198, 207) ;
+background:  rgb(0, 146, 172) ;
 min-height: 100vh;
 align-self: center;
 -webkit-box-align: center;
@@ -30,8 +30,8 @@ width: 300px;
 flex-direction: column;
 gap: 35px;
 border-radius: 15px;
-background: rgb(0, 146, 172) ;
-box-shadow: 16px 16px 32px  #111111,
+background:  rgb(54, 184, 204) ;
+box-shadow: 16px 16px 32px  #000000,
    -16px -16px 32px #111111;
 }
 
