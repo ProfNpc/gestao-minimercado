@@ -14,7 +14,7 @@ letter-spacing: 2px;
 display: flex;
 letter-spacing: center;
 align-items:center;
-background:  rgb(0, 146, 172) ;
+background: rgb(0, 146, 172) ;
 min-height: 100vh;
 align-self: center;
 -webkit-box-align: center;
@@ -30,15 +30,15 @@ width: 300px;
 flex-direction: column;
 gap: 35px;
 border-radius: 15px;
-background:  rgb(54, 184, 204) ;
-box-shadow: 16px 16px 32px  #000000,
-   -16px -16px 32px #111111;
+background: rgb(48, 166, 184) ;
+box-shadow: 16px 16px 32px  #c8c8c8,
+   -16px -16px 32px #fefeff;
 }
 
 .line{
 width: 100px;
 height: 3px;
-background: #111111;
+background: #fff;
 }
 
 .inputBox{
@@ -93,6 +93,10 @@ border:2px solid black;
 }
 
 
+
+
+
+
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 button{
@@ -120,7 +124,4 @@ background-color: aqua;
 } */
 
 
-
-/* Login */
-/* //////////////////////////////// */
 
