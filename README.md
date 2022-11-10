@@ -78,3 +78,6 @@ ou
 
 `git push`
 
+Assinatura de quem conseguiu alterar:
+Nicolas
+Candaçan
