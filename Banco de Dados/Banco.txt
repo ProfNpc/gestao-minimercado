@@ -1,0 +1,37 @@
+create database trampo;
+use trampo;
+l
+create table client (
+ID_cliente int primary key,
+nome varchar (50),
+endereço varchar (90),
+gmail varchar (50),
+senha varchar (20),
+telefone int,
+data_de_nascimento date
+)
+go
+
+
+
+
+create table mercado (
+RG_do_dono int primary key,
+nome_comercio varchar (50),
+endereço_comercio varchar (90),
+telefone int,
+gmail_comerco varchar(50),
+senha varchar (20)
+tipo_comercio varchar (15)
+)
+go
+
+
+
+create table venda (
+nota_fiscal int primary key,
+produtos_vendidos varchar (150),
+valor int,
+forma_de_pagamento varchar (15)
+)
+go
