@@ -26,3 +26,11 @@ valor int,
 forma_de_pagamento varchar (15)
 )
 go
+
+create table produto(
+    preco int,
+    marca varchar (50),
+    ID_cliente varchar int primary key,
+    nome_produto varcahr (50)
+)
+go
