@@ -8,22 +8,50 @@
     <link rel="stylesheet" href="Padrao.css">
 </head>
 <body>
-    <form action="LoginMercado.html" method="get" class="container">
-        <div class="card">
-            <div class="inputBox">
-                <b>
+    <form action="LoginMercado.html" method="get">
+
+        <div class="container">
+            <div class="card">
+            
+
                 <h3>Cadastro Mercado</h3>
-                <br>
-                <p>Nome do mercado <br><input type="text" name="NomeM"/></p><br>
-                <p>Endereço <br><input type="text" name="endereco"/></p><br>
-                <p>Email <br><input type="text" name="email"/></p><br>
-                <p>Senha <br><input type="password" name="senha"/></p><br>
-                <p>CSenha <br><input type="password" name="csenha"/></p><br>
-                <p>Tipo de comercio <br><input type="text" name="tipo"/></p><br>
+            
+
+                      <div  class="inputBox">
+                        <input type="text" name="NomeM">
+                        <span>Nome do Mercado</span>
+                      </div>
+
+                         <div  class="inputBox">
+                            <input type="text" name="endereco">
+                            <span>Endereço</span>
+                         </div>
+                        
+                         <div  class="inputBox">
+                                <input type="text" required="email">
+                                <span>Email</span>
+                           </div>
+
+                         <div  class="inputBox">
+                                    <input type="password" required="senha">
+                                    <span>Senha</span>
+                       </div>
+
+                       <div  class="inputBox">
+                            <input type="password" required="csenha">
+                            <span>CSenha</span>
+                         </div>
+
+                         <div  class="inputBox">
+                                <input type="text" name="tipo">
+                                <span>Tipo de comercio</span>
+                             </div>
+
                 <button type="submit">Enviar</button>
-                </b>
+
+            
             </div>
-        </div>
+        </div>    
     </form>
 </body>
 </html>
