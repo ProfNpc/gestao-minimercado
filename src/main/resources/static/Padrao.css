@@ -42,12 +42,12 @@ height: 3px;
 background: #fff;
 }
 
-.inputBox{
+.inputBox, label{
 position: relative;
 width: 250px;
 }
 
-.inputBox input {
+.inputBox input, label {
 width: 100%;
 padding: 10px;
 outline: none;
