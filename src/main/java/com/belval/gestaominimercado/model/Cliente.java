@@ -1,7 +1,16 @@
 package com.belval.gestaominimercado.model;
 
-public class Cadastro {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Cliente {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	private String aniver;
 	private String nome;
 	private String email;
@@ -9,7 +18,7 @@ public class Cadastro {
 	private String endereco;
 	private String cpf;
 	
-	public Cadastro(String aniver, String nome, String email, String senha, String endereco, String cpf) {
+	public Cliente(String aniver, String nome, String email, String senha, String endereco, String cpf) {
 		super();
 		this.aniver = aniver;
 		this.nome = nome;

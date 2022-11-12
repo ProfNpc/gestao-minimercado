@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.belval.gestaominimercado.model.Cadastro;
+import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.model.CadastroM;
 
 @Controller 
 public class MercController {
 	
-	private static List<Cadastro> listCad= new ArrayList<Cadastro>();
+	private static List<Cliente> listCad= new ArrayList<Cliente>();
 	private static List<CadastroM> listCadM= new ArrayList<CadastroM>();
 	
 	@GetMapping("/cadastro")
@@ -23,7 +23,7 @@ public class MercController {
 		return "RegistroUser";
 	}
 	@PostMapping("/cadastro")
-	public ModelAndView cadastro(Cadastro cad) {
+	public ModelAndView cadastro(Cliente cad) {
 		
 		ModelAndView mv = new ModelAndView("");
 		
