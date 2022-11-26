@@ -15,24 +15,7 @@ import com.belval.gestaominimercado.model.CadastroM;
 @Controller 
 public class MercController {
 	
-	private static List<Cliente> listCad= new ArrayList<Cliente>();
 	private static List<CadastroM> listCadM= new ArrayList<CadastroM>();
-	
-	@GetMapping("/cadastro")
-	public String cadastro(Model model) {
-		return "RegistroUser";
-	}
-	@PostMapping("/cadastro")
-	public ModelAndView cadastro(Cliente cad) {
-		
-		ModelAndView mv = new ModelAndView("");
-		
-		listCad.add(cad);
-		
-		mv.addObject("cadastro", cad);
-		
-		return mv;
-	}
 	
 	@GetMapping("/login")
 	public String login(Model model) {

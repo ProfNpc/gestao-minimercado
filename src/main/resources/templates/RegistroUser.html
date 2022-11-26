@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="Padrao.css">
 </head>
 <body>
-    <form action="RegistroUser.html" method="get" class="container">
-
+    <form action="/cliente/cadastro" method="post" class="container">
+        <input type="hidden" name="id" th:value="${Cliente.id}">
          <div class="container">
              <div class="card">
                     
@@ -17,22 +17,22 @@
                  <h3>Cadastro Usuario</h3>
 
                     <div  class="inputBox">
-                        <input type="text" name="NomeU">
+                        <input type="text" name="nome" th:value="${Cliente.nome}">
                         <span>Nome</span>
                      </div>
 
                      <div  class="inputBox">
-                            <input type="text" name="endereco">
+                            <input type="text" name="endereco" th:value="${Cliente.endereco}">
                             <span>Endereço</span>
                          </div>
                         
                          <div  class="inputBox">
-                                <input type="text" required="email">
+                                <input type="text" required="email" name="email" th:value="${Cliente.email}">
                                 <span>Email</span>
                            </div>
 
                          <div  class="inputBox">
-                                    <input type="password" required="senha">
+                                    <input type="password" required="senha" name="senha" th:value="${Cliente.senha}">
                                     <span>Senha</span>
                        </div>
 
@@ -42,7 +42,7 @@
                          </div>
 
                          <div  class="inputBox">
-                                <input type="date" name="data">
+                                <input type="date" name="aniver" th:value="${Cliente.aniver}">
                                 <span> Data de nascimento</span>
                              </div>
 

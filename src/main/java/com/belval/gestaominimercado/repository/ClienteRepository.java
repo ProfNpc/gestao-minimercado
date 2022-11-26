@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.belval.gestaominimercado.model.Cliente;
 
-public interface CadastroRepository extends CrudRepository<Cliente, Integer> {
+public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 	
-	  List<Cliente> findByDescricao(String descricao);
+	  List<Cliente> findByNome(String nome);
 
 	  Cliente findById(int id);
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detalhe</title>
+</head>
+<body>
+    <h1>Detalhe Cliente</h1>
+    <table border="1">
+    <tr>
+        <th>ID:</th>
+        <td>
+            <span th:text="${cliente.id}"></span>
+        </td>
+    </tr>    
+    <tr>
+        <th>Nome:</th>
+        <span th:text="${cliente.nome}"></span>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <span th:text="${cliente.email}"></span>
+    </tr>
+    </table>
+</body>
+</html>

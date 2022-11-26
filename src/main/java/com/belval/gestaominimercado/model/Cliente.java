@@ -10,7 +10,7 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String aniver;
 	private String nome;
 	private String email;
@@ -18,15 +18,32 @@ public class Cliente {
 	private String endereco;
 	private String cpf;
 	
-	public Cliente(String aniver, String nome, String email, String senha, String endereco, String cpf) {
+	
+	
+	
+	public Cliente() {
 		super();
+	}
+
+
+	public Cliente(Integer id, String aniver, String nome, String email, String senha, String endereco, String cpf) {
+		super();
+		this.id = id;
 		this.aniver = aniver;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
 		this.cpf = cpf;
-		// TODO Auto-generated constructor stub
+	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getAniver() {
@@ -76,18 +93,4 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

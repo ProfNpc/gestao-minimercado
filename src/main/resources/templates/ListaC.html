@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lista De Clientes</title>
+</head>
+<body>
+		<h1>Lista de Clientes</h1>
+		
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+			</tr>
+			<tr th:each="cliente : ${clientes}">
+				<td>
+					<a th:href="@{/cliente/{id}(id=${cliente.id})}"><span th:text="${cliente.id}"></span></a>
+				</td>
+				<td>
+					<span th:text="${cliente.email}"></span>
+				</td>
+			</tr>
+		</table>
+</body>
+</html>
