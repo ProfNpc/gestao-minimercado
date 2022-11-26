@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.repository.ClienteRepository;
-import com.sun.xml.bind.v2.runtime.reflect.ListIterator;
 
 @Controller
 public class ClienteController {
@@ -48,7 +47,7 @@ public class ClienteController {
 		Cliente c = repository.findById(id);
 		
 		if(c == null) {
-			return null;
+			return "nao-encontrado";
 		}
 		
 		model.addAttribute("cliente",c);
@@ -63,7 +62,7 @@ public class ClienteController {
 			return "nao-encontrado";
 		}
 		model.addAttribute("cliente", c);
-		return "novo-cliente";
+		return "RegistroUser";
 	}
 	
 	@GetMapping("/cliente/list")
