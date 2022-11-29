@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Padrao.css">
 </head>
 <body>
+<<<<<<< HEAD
     <form action="RegistroUser.html" method="get" class="container">
         <div class="card">
              <div class="inputBox">
@@ -22,8 +23,53 @@
                 <p><b>Data de nascimento</b><br> <input type="date" name="data" /></p>
                 <button type="submit"><b>Enviar</b></button>
                 </b>
+=======
+    <form action="/cliente/cadastro" method="post" class="container">
+        <input type="hidden" name="id" th:value="${Cliente.id}">
+         <div class="container">
+             <div class="card">
+                    
+        
+                 <h3>Cadastro Usuario</h3>
+
+                    <div  class="inputBox">
+                        <input type="text" name="nome" th:value="${Cliente.nome}">
+                        <span>Nome</span>
+                     </div>
+
+                     <div  class="inputBox">
+                            <input type="text" name="endereco" th:value="${Cliente.endereco}">
+                            <span>Endereço</span>
+                         </div>
+                        
+                         <div  class="inputBox">
+                                <input type="text" required="email" name="email" th:value="${Cliente.email}">
+                                <span>Email</span>
+                           </div>
+
+                         <div  class="inputBox">
+                                    <input type="password" required="senha" name="senha" th:value="${Cliente.senha}">
+                                    <span>Senha</span>
+                       </div>
+
+                       <div  class="inputBox">
+                            <input type="password" required="csenha">
+                            <span>CSenha</span>
+                         </div>
+
+                         <div  class="inputBox">
+                                <input type="date" name="aniver" th:value="${Cliente.aniver}">
+                                <span> Data de nascimento</span>
+                             </div>
+
+
+                <button type="submit">Enviar</button>
+        
+
+>>>>>>> a0bb4bf95fc2a8e62ccd8674ee0d93873054a4e1
             </div>
-        </div>
+         </div>        
+
 
     </form>
 </body>

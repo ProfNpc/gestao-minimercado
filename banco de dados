@@ -1,4 +1,4 @@
-create table client (
+create table cliente (
 ID_cliente int primary key,
 nome varchar (50),
 endereço varchar (90),
@@ -24,5 +24,13 @@ nota_fiscal int primary key,
 produtos_vendidos varchar (150),
 valor int,
 forma_de_pagamento varchar (15)
+)
+go
+
+create table produto(
+    preco int,
+    marca varchar (50),
+    ID_cliente varchar int primary key,
+    nome_produto varcahr (50)
 )
 go
