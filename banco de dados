@@ -1,21 +1,21 @@
 create table cliente (
-ID_cliente int primary key,
+id int primary key,
 nome varchar (50),
 endereço varchar (90),
 gmail varchar (50),
 senha varchar (20),
-telefone int,
+aniver date ,
 )
 go
 
 create table mercado (
-RG_do_dono int primary key,
-nome_comercio varchar (50),
-endereço_comercio varchar (90),
+cnpj varchar (20) primary key,
+fantasia varchar(20,)
 telefone int,
-gmail_comerco varchar(50),
-senha varchar (20)
-tipo_comercio varchar (15)
+tipo varchar (20),
+endereco varchar (50),
+email varchar (50),
+senha varchar (20),
 )
 go
 
@@ -29,8 +29,8 @@ go
 
 create table produto(
     preco int,
-    marca varchar (50),
-    ID_cliente varchar int primary key,
+    descricao varchar (50),
+    id varchar int primary key,
     nome_produto varcahr (50)
 )
 go
