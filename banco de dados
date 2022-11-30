@@ -2,9 +2,10 @@ create table cliente (
 id int primary key,
 nome varchar (50),
 endereço varchar (90),
-gmail varchar (50),
+email varchar (50),
 senha varchar (20),
 aniver date ,
+cpf varchar (15),
 )
 go
 
