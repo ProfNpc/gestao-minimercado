@@ -1,8 +1,8 @@
 class MobileNavber{
     constructor(MobileNavber, navList, navLinks){
-        this.MobileMenu = document.querySelector(MobileMenu);
+        this.mobileMenu = document.querySelector(mobileMenu);
         this.navList = document.querySelector(navList);      
-        this.navLisks = document.querySelector(navLisks);      
+        this.navLinks = document.querySelectorAll(navLinks);      
         this.activeClass = "active";       
 
         this.hadleClick = thi.hadleClick.bing(this);
@@ -23,8 +23,7 @@ handleClick(){
 }
 
 addClickEvent(){
-    this.mobileMenu.addEventListener("click", () => console.log
-    ("Heyyy"));
+    this.mobileMenu.addEventListener("click", this.handleClick);
   }
 
 
@@ -36,11 +35,10 @@ init(){
 }
 }
 
-const mobileNavbar = new MobileNavber(
+const mobileNavbar = new mobileNavbar(
     ".mobile-menu",
-    "nac-list",
-    "nav-list li",
+    ".nav-list",
+    ".nav-list li",
 );
-
 mobileNavbar.init();
 
