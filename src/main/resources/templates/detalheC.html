@@ -23,6 +23,22 @@
         <th>Email:</th>
         <span th:text="${cliente.email}"></span>
     </tr>
+    <tr>
+        <th>Nascimento:</th>
+        <span th:text="${cliente.aniver}"></span>
+    </tr>
+    <tr>
+        <th>senha:</th>
+        <span th:text="${cliente.senha}"></span>
+    </tr>
+    <tr>
+        <th>endereço:</th>
+        <span th:text="${cliente.endereco}"></span>
+    </tr>
+    <tr>
+        <th>CPF:</th>
+        <span th:text="${cliente.cpf}"></span>
+    </tr>
     </table>
     <a href="@{/cliente/list}">Lista</a>
 </body>
