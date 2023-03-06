@@ -1,11 +1,22 @@
 package com.belval.gestaominimercado.model;
 
+import java.util.Collection;
+
+import javax.management.relation.Role;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(name="Cliente", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
 public class Cliente {
 	
 	@Id
@@ -18,8 +29,9 @@ public class Cliente {
 	private String endereco;
 	private String cpf;
 	
-	
-	
+	//@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	//@JoinTable(name="users_roles", joinColumns=@JoinColumn(name="user_id",referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="role_id",referencedColumnName = "id"))
+	//private Collection<Role> roles;
 	
 	public Cliente() {
 		super();
