@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.management.relation.Role;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,13 +21,19 @@ import javax.persistence.UniqueConstraint;
 public class Cliente {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	@Column (name = "aniver")
 	private String aniver;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "senha")
 	private String senha;
+	@Column(name = "endereco")
 	private String endereco;
+	@Column (name = "cpf")
 	private String cpf;
 	
 	//@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
