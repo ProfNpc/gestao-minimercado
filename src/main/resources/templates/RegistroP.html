@@ -8,24 +8,24 @@
     <link rel = "stylesheet" href="/padrao.css"></link>
 </head>
 <body>
-<form action="LoginProduto" method="get">
+<form action="LoginProduto" method="post">
     <div class="container">
         <div class="card">
 
             <h3>Cadastro Produtos</h3>
 
             <div class="inputBox">
-                <input type="text" name="nome do produto">
+                <input type="text" name="nome do produto" th:value="${produto.nome}">
                 <span>Nome do produto</span>
             </div>
 
               <div class="inputBox">
-                <input type="text" name="preco do produto">
+                <input type="text" name="preco do produto" th:value="${produto.preco}">
                 <span>Preco do produto</span>
               </div>
 
                  <div class="inputBox">
-                <input type="text" name="descricao do produto">
+                <input type="text" name="descricao do produto" th:value="${produto.descricao}">
                 <span>descricao do produto</span>
                  </div>
             

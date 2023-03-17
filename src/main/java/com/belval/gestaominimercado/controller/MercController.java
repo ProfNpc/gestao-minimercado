@@ -22,11 +22,11 @@ public class MercController {
 		return "Login";
 	}
 	
-	@GetMapping("/cadastrom")
+	@GetMapping("mercado/cadastro")
 	public String cadastroM(Model model) {
 		return "RegistroMercado";
 	}
-	@PostMapping("/cadastrom")
+	@PostMapping("mercado/cadastro")
 	public ModelAndView cadastrom(CadastroM cadm) {
 		
 		ModelAndView mv = new ModelAndView("");
