@@ -36,14 +36,16 @@ public class Cliente {
 	@Column (name = "cpf")
 	private String cpf;
 	
-	//@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	//@JoinTable(name="users_roles", joinColumns=@JoinColumn(name="user_id",referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="role_id",referencedColumnName = "id"))
-	//private Collection<Role> roles;
-	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			  name="users_roles",
+			  joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
+			  inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id")
+			)
+	private Collection<Role> roles;
 	public Cliente() {
 		super();
 	}
-
 
 	public Cliente(Integer id, String aniver, String nome, String email, String senha, String endereco, String cpf) {
 		super();
@@ -111,5 +113,13 @@ public class Cliente {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 }

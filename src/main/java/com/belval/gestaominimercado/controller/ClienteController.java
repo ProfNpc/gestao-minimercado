@@ -7,40 +7,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.repository.ClienteRepository;
+import com.belval.gestaominimercado.service.ClienteService;
+import com.belval.gestaominimercado.web.dto.ClienteDto;
 
 @Controller
 public class ClienteController {
 	
-	@Autowired
-	private ClienteRepository repository;
+	private ClienteService clienteService;
 	
-	private static List<Cliente> listCad= new ArrayList<Cliente>();
-	private int next=1;
+	public ClienteController(ClienteService clienteService) {
+		
+		this.clienteService = clienteService;
+	}
+	
+	@ModelAttribute("user")
+	public ClienteDto userDto() {
+		return new ClienteDto();
+	}
+	
 	
 	@GetMapping("/cliente/cadastro")
-	public String cadastro(Model model) {
-		model.addAttribute("Cliente", new Cliente());
+	public String cadastro() {
 		return "RegistroUser";
 	}
 	@PostMapping("/cliente/cadastro")
-	public ModelAndView cadastro(Cliente cad) {
-		
-		ModelAndView mv = new ModelAndView("redirect:/cliente/list");
-
-		repository.save(cad);
-		
-		
-		mv.addObject("cadastro", cad);
-		
-		return mv;
+	public String cadastro(@ModelAttribute("user") ClienteDto clienteDto) {
+		clienteService.save(clienteDto);
+		return "redirect:/cliente/login";
 	}
 	
+	@GetMapping("/cliente/login")
+	public String login() {
+		return "LoginUser";
+	}
+	/*
 	@GetMapping("/cliente/detalhe/{id}")
 	public String detalhe(@PathVariable("id") int id, Model model) {
 		
@@ -70,4 +77,5 @@ public class ClienteController {
 		model.addAttribute("clientes", repository.findAll());
 		return "ListaC";
 	}
+	*/
 }

@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/Padrao.css">
 </head>
 <body>
-    <form action="/cliente/cadastro" method="post" class="container">
-        <input type="hidden" name="id" th:value="${Cliente.id}">
+    <form th:action="@{/cliente/cadastro}" method="post" class="container" th:object="${cliente}">
          <div class="container">
              <div class="card">
                     
@@ -17,22 +16,22 @@
                  <h3>Cadastro Usuario</h3>
 
                     <div  class="inputBox">
-                        <input type="text" name="nome" th:value="${Cliente.nome}">
+                        <input type="text" name="nome" th:field="*{nome}">
                         <span>Nome</span>
                      </div>
 
                      <div  class="inputBox">
-                            <input type="text" name="endereco" th:value="${Cliente.endereco}">
+                            <input type="text" name="endereco" th:field="*{endereco}">
                             <span>Endereço</span>
                          </div>
                         
                          <div  class="inputBox">
-                                <input type="text" required="email" name="email" th:value="${Cliente.email}">
+                                <input type="text" required="email" name="email" th:field="*{email}">
                                 <span>Email</span>
                            </div>
 
                          <div  class="inputBox">
-                                    <input type="password" required="senha" name="senha" th:value="${Cliente.senha}">
+                                    <input type="password" required="senha" name="senha" th:field="*{senha}">
                                     <span>Senha</span>
                        </div>
 
@@ -42,7 +41,7 @@
                          </div>
 
                          <div  class="inputBox">
-                                <input type="date" name="aniver" th:value="${Cliente.aniver}">
+                                <input type="date" name="aniver" th:field="*{aniver}">
                                 <span> Data de nascimento</span>
                              </div>
 
