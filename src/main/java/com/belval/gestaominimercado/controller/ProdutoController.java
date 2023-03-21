@@ -36,7 +36,7 @@ public class ProdutoController {
 		return "redirect:/produtos";
 	}
 	
-	@GetMapping("/produto/add")
+	@GetMapping("/produto/list")
 	public String listar(Model model) {
 		List<Produto> produtos = produtoService.listar();
 		model.addAttribute("produtos", produtos);
