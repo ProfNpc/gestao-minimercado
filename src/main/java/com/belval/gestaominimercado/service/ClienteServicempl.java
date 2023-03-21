@@ -1,5 +1,7 @@
 package com.belval.gestaominimercado.service;
 
+
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -47,13 +49,13 @@ public class ClienteServicempl implements ClienteService {
 	@Override
 	public Cliente save(ClienteDto userDto) {
 		
-		Cliente user = new Cliente(userDto.getNome(),
-							 userDto.getAniver(),
-							 userDto.getCpf(),
-							 userDto.getEndereco(),
-				             userDto.getEmail(), 
-				             passwordEncoder.encode(userDto.getSenha()), 
-				             Arrays.asList(new Role("ROLE_USER")));
+		Cliente user = new Cliente(userDto.getAniver(),
+				userDto.getNome(),
+				userDto.getEmail(),
+				passwordEncoder.encode(userDto.getSenha()),
+				userDto.getEndereco(),
+				userDto.getCpf(),
+				Arrays.asList(new Role("ROLE_USER")));
 		
 		
 		return clienteRepository.save(user);

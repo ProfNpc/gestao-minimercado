@@ -1,5 +1,9 @@
 package com.belval.gestaominimercado.web.dto;
 
+import java.util.Collection;
+
+import javax.management.relation.Role;
+
 public class ClienteDto {
 	
 	private Integer id;
@@ -23,6 +27,17 @@ public class ClienteDto {
 		this.senha = senha;
 		this.endereco = endereco;
 		this.cpf = cpf;
+	}
+	
+	public ClienteDto(String aniver, String nome, String email, String senha, String endereco, String cpf) {
+		super();
+		this.aniver = aniver;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.endereco = endereco;
+		this.cpf = cpf;
+		
 	}
 
 	public Integer getId() {

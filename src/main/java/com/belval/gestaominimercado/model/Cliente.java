@@ -2,7 +2,8 @@ package com.belval.gestaominimercado.model;
 
 import java.util.Collection;
 
-import javax.management.relation.Role;
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,11 +45,11 @@ public class Cliente {
 			)
 	private Collection<Role> roles;
 	public Cliente() {
-		super();
+	
 	}
 
-	public Cliente(Integer id, String aniver, String nome, String email, String senha, String endereco, String cpf) {
-		super();
+	public Cliente(Integer id, String aniver, String nome, String email, String senha, String endereco, String cpf, Collection<Role> roles) {
+	
 		this.id = id;
 		this.aniver = aniver;
 		this.nome = nome;
@@ -56,8 +57,20 @@ public class Cliente {
 		this.senha = senha;
 		this.endereco = endereco;
 		this.cpf = cpf;
+		this.roles = roles;
 	}
 	
+
+	public Cliente( String aniver2, String nome2, String email2, String encode, String endereco2,
+			String cpf2, Collection<Role> roles) {
+		this.aniver = aniver2;
+		this.nome = nome2;
+		this.email = email2;
+		this.senha = encode;
+		this.endereco = endereco2;
+		this.cpf = cpf2;
+		this.roles = roles;
+	}
 
 	public Integer getId() {
 		return id;
