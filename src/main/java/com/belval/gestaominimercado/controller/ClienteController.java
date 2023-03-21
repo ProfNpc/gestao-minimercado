@@ -27,7 +27,7 @@ public class ClienteController {
 		this.clienteService = clienteService;
 	}
 	
-	@ModelAttribute("user")
+	@ModelAttribute("cliente")
 	public ClienteDto userDto() {
 		return new ClienteDto();
 	}
