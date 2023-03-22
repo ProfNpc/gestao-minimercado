@@ -8,27 +8,27 @@
     <link rel = "stylesheet" href="/padrao.css"></link>
 </head>
 <body>
-<form action="LoginProduto" method="post" th:object="${produto}">
+<form th:action="@{/produto/cadastro}" method="post" th:object="${produto}">
     <div class="container">
         <div class="card">
 
             <h3>Cadastro Produtos</h3>
 
             <div class="inputBox">
-                <input type="text" name="nome do produto" th:value="${produto.nome}">
+                <input type="text" name="nome do produto" th:field="*{nome}">
                 <span>Nome do produto</span>
             </div>
 
               <div class="inputBox">
-                <input type="text" name="preco do produto" th:value="${produto.preco}">
+                <input type="text" name="preco do produto" th:field="*{preco}">
                 <span>Preco do produto</span>
               </div>
 
                  <div class="inputBox">
-                <input type="text" name="descricao do produto" th:value="${produto.descricao}">
+                <input type="text" name="descricao do produto" th:field="*{descricao}">
                 <span>descricao do produto</span>
                  </div>
-            
+            <button type="submit">Enviar</button>
         </div>
     </div>
 </form>

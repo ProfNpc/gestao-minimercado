@@ -1,45 +1,46 @@
 package com.belval.gestaominimercado.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.belval.gestaominimercado.model.Produto;
-import com.belval.gestaominimercado.service.ProdutoService;
+import com.belval.gestaominimercado.repository.ProdutoRepository;
 
 @Controller
 public class ProdutoController {
 	
 	@Autowired
-	private ProdutoService produtoService;
+	private ProdutoRepository produtoRepository;
 	
-	private static List<Produto> listaProdutos = new ArrayList<Produto>();
-	
-	@GetMapping("/produto/add")
-	public String add() {
+	@GetMapping("/produto/cadastro")
+	public String add(Model model) { 
+		model.addAttribute("produto", new Produto());
 		return "RegistroP";
 	}
-	@PostMapping("/produto/add")
-	public String add(@RequestParam String nome, String descricao, double preco) {
-		Produto produto= new Produto();
-		produto.setNome(nome);
-		produto.setDescricao(descricao);
-		produto.setPreco(preco);
-		produtoService.cadastrar(produto);
-		return "redirect:/produtos";
+	@PostMapping("/produto/cadastro")
+	public String add(@ModelAttribute("produto") Produto produto) {
+		produtoRepository.save(produto);
+		return "redirect:/produto/list";
 	}
 	
 	@GetMapping("/produto/list")
 	public String listar(Model model) {
-		List<Produto> produtos = produtoService.listar();
+		List<Produto> produtos = produtoRepository.findAll();
 		model.addAttribute("produtos", produtos);
 		return "ListaP";
+	}
+	
+	@GetMapping("editar/{id}")
+	public String att(@PathVariable("id") int id, Model model) {
+		Produto produto = produtoRepository.findById(id);
+		model.addAttribute("produto", produto);
+		return "EditP";
 	}
 }
