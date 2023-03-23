@@ -17,6 +17,9 @@
                 <td th:text="${produto.nome}"></td>
                 <td th:text="${produto.preco}"></td>
                 <td>
+        			<a th:href="@{/produto/detalhes/{id}(id=${produto.id})}" class="btn btn-info btn-sm">Detalhes</a>
+    			</td>
+                <td>
         			<a th:href="@{/produto/editar/{id}(id=${produto.id})}" class="btn btn-primary btn-sm">Editar</a>
     			</td>
     			<td>

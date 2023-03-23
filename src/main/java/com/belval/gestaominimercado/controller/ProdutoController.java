@@ -43,4 +43,23 @@ public class ProdutoController {
 		model.addAttribute("produto", produto);
 		return "EditP";
 	}
+	@PostMapping("atualizar")
+	public String att(@ModelAttribute("produto") Produto produto) {
+		produtoRepository.save(produto);
+		return "redirect:/produto/list";
+	}
+	
+	@GetMapping("excluir/{id}")
+	public String excluir(@PathVariable("id") int id, Model model) {
+		Produto produto = produtoRepository.findById(id);
+		produtoRepository.delete(produto);
+		return "redirect:/produto/list";
+	}
+	
+	@GetMapping("/detalhes/{id}")
+	public String exibirDetalhes(@PathVariable("id") int id, Model model) {
+	    Produto produto = produtoRepository.findById(id);
+	    model.addAttribute("produto", produto);
+	    return "DetalheP";
+	}
 }
