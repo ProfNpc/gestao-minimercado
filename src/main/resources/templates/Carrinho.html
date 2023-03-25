@@ -1,0 +1,20 @@
+<h1>Carrinho de compras</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${carrinho}">
+                <td th:text="${item.produto.nome}"></td>
+                <td th:text="${item.produto.preco}"></td>
+                <td>
+                <form method="post" action="/carrinho/remover">
+                <input type="hidden" name="id" th:value="${item.id}"/>
+                <button type="submit">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>

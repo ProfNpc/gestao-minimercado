@@ -11,35 +11,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.belval.gestaominimercado.model.CadastroM;
+import com.belval.gestaominimercado.model.ItemCarrinho;
+import com.belval.gestaominimercado.model.Produto;
+import com.belval.gestaominimercado.service.CarrinhoService;
+import com.belval.gestaominimercado.service.ProdutoService;
 
 @Controller 
 public class MercController {
 	
-	private static List<CadastroM> listCadM= new ArrayList<CadastroM>();
-	
-	@GetMapping("/login")
-	public String login(Model model) {
-		return "Login";
-	}
-	
-	@GetMapping("mercado/cadastro")
-	public String cadastroM(Model model) {
-		return "RegistroMercado";
-	}
-	@PostMapping("mercado/cadastro")
-	public ModelAndView cadastrom(CadastroM cadm) {
-		
-		ModelAndView mv = new ModelAndView("");
-		
-		listCadM.add(cadm);
-		
-		mv.addObject("cadastro", cadm);
-		
-		return mv;
-	}
-	
-	@GetMapping("/tc")
-	public String tc(Model model) {
-		return "TipoDeCadastro";
-	}
+	private final ProdutoService produtoService;
+    private final CarrinhoService carrinhoService;
+
+    public MercadoController(ProdutoService produtoService, CarrinhoService carrinhoService) {
+        this.produtoService = produtoService;
+        this.carrinhoService = carrinhoService;
+    }
+
+    @GetMapping("/mercado")
+    public String mostrarMercado(Model model) {
+        List<Produto> produtos = produtoService.listar();
+        List<ItemCarrinho> carrinho = carrinhoService.listarItensCarrinho();
+
+        model.addAttribute("produtos", produtos);
+        model.addAttribute("carrinho", carrinho);
+
+        return "mercado";
+    }
 }
