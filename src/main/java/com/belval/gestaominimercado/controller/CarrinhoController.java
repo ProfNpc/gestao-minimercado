@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.belval.gestaominimercado.model.Carrinho;
+import com.belval.gestaominimercado.model.ItemCarrinho;
 import com.belval.gestaominimercado.model.Produto;
+import com.belval.gestaominimercado.repository.ItemCarrinhoRepository;
 import com.belval.gestaominimercado.repository.ProdutoRepository;
 
 @Controller
@@ -20,6 +22,9 @@ public class CarrinhoController {
 	
 	@Autowired
     private ProdutoRepository produtoRepository;
+	
+	@Autowired
+    private ItemCarrinhoRepository itemCarrinhoRepository;
 	
 	private Carrinho carrinho = new Carrinho();
 	
@@ -30,14 +35,18 @@ public class CarrinhoController {
         model.addAttribute("carrinho", carrinho);
         return "Mercado";
     }
-	@PostMapping("/")
+	
+	@GetMapping("/carrinho")
+	public String Carrinho(Model model) {
+        List<ItemCarrinho> listaItensCarrinho = itemCarrinhoRepository.findAll();
+        model.addAttribute("itensCarrinho", listaItensCarrinho);
+        return "Carrinho";
+    }
+	@PostMapping("/carrinho")
     public String adicionarProduto(Model model, @RequestParam int id) {
-        Produto produto = produtoRepository.findById(id);
-        carrinho.adicionarProduto(produto);
-        List<Produto> produtos = produtoRepository.findAll();
-        model.addAttribute("produtos", produtos);
-        model.addAttribute("carrinho", carrinho);
-        return "listarProdutos";
+        ItemCarrinho item = new ItemCarrinho(id);
+        itemCarrinhoRepository.save(item);
+        return "redirect:/Carrinho";
     }
 	
 	@PostMapping("/remover")

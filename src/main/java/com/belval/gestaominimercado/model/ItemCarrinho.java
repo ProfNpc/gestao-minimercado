@@ -16,6 +16,11 @@ public class ItemCarrinho {
     @ManyToOne
     private Produto produto;
 
+	public ItemCarrinho(int id) {
+		super();
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}

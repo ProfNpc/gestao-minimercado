@@ -20,14 +20,14 @@ public class CarrinhoService {
         this.produtoRepository = produtoRepository;
     }
 
-    public void adicionarItemCarrinho(int id) {
-        Produto produto = produtoRepository.findById(id);
-
-        ItemCarrinho itemCarrinho = new ItemCarrinho();
-        itemCarrinho.setProduto(produto);
-
-        carrinhoRepository.save(itemCarrinho);
-    }
+    //public void adicionarItemCarrinho(int id) {
+  //      Produto produto = produtoRepository.findById(id);
+//
+    //    ItemCarrinho itemCarrinho = new ItemCarrinho(int);
+  //      itemCarrinho.setProduto(produto);
+//
+      //  carrinhoRepository.save(itemCarrinho);
+    //}
 
     public List<ItemCarrinho> listarItensCarrinho() {
         return carrinhoRepository.findAll();
