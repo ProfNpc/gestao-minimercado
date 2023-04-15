@@ -14,7 +14,7 @@ import com.belval.gestaominimercado.service.ProdutoService;
 @Controller 
 public class MercController {
 	
-	private final ProdutoService produtoService;
+	/*private final ProdutoService produtoService;
     private final CarrinhoService carrinhoService;
 
     public MercController(ProdutoService produtoService, CarrinhoService carrinhoService) {
@@ -31,5 +31,5 @@ public class MercController {
         model.addAttribute("carrinho", carrinho);
 
         return "mercado";
-    }
+    }*/
 }

@@ -1,8 +1,8 @@
 package com.belval.gestaominimercado.model;
 
+import java.io.Serializable;
 import java.util.Collection;
-
-
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,12 +14,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="Cliente", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
-public class Cliente {
+public class Cliente implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,6 +42,10 @@ public class Cliente {
 	private String endereco;
 	@Column (name = "cpf")
 	private String cpf;
+	
+	@OneToMany
+	@JoinColumn(name="cliente_id")
+	protected List<Carrinho>carrinhos;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
@@ -134,5 +144,13 @@ public class Cliente {
 
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public List<Carrinho> getCarrinhos() {
+		return carrinhos;
+	}
+
+	public void setCarrinhos(List<Carrinho> carrinhos) {
+		this.carrinhos = carrinhos;
 	}
 }

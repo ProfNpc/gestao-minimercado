@@ -1,11 +1,17 @@
 package com.belval.gestaominimercado.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table
@@ -21,6 +27,8 @@ public class Produto {
 	@Column
 	private double preco;
 	
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	private Set<ItemCarrinho> itensCarrinho = new HashSet<>();
 
 	public Produto(int id, String nome, String descricao, double preco) {
 		super();
@@ -66,7 +74,13 @@ public class Produto {
 		this.preco = preco;
 	}
 	
-	
+	public Set<ItemCarrinho> getItensCarrinho() {
+		return itensCarrinho;
+	}
+
+	public void setItensCarrinho(Set<ItemCarrinho> itensCarrinho) {
+		this.itensCarrinho = itensCarrinho;
+	}
 	
 
 }

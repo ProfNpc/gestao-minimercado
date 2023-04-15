@@ -45,7 +45,7 @@ public class ClienteController {
 	
 	@GetMapping("/cliente/login")
 	public String login() {
-		return "LoginUser";
+		return "Login";
 	}
 	/*
 	@GetMapping("/cliente/detalhe/{id}")
