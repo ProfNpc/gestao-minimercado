@@ -1,19 +1,12 @@
 package com.belval.gestaominimercado.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.belval.gestaominimercado.model.Cliente;
-import com.belval.gestaominimercado.repository.ClienteRepository;
+import com.belval.gestaominimercado.model.Carrinho;
+import com.belval.gestaominimercado.service.CarrinhoService;
 import com.belval.gestaominimercado.service.ClienteService;
 import com.belval.gestaominimercado.web.dto.ClienteDto;
 
@@ -21,6 +14,7 @@ import com.belval.gestaominimercado.web.dto.ClienteDto;
 public class ClienteController {
 	
 	private ClienteService clienteService;
+	private CarrinhoService carrinhoService;
 	
 	public ClienteController(ClienteService clienteService) {
 		
@@ -40,6 +34,7 @@ public class ClienteController {
 	@PostMapping("/cliente/cadastro")
 	public String cadastro(@ModelAttribute("user") ClienteDto clienteDto) {
 		clienteService.save(clienteDto);
+		carrinhoService.save(new Carrinho(0.0, "Pendente"));
 		return "redirect:/cliente/login";
 	}
 	

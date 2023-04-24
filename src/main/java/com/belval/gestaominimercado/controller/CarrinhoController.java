@@ -2,8 +2,6 @@ package com.belval.gestaominimercado.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.belval.gestaominimercado.model.ItemCarrinho;
 import com.belval.gestaominimercado.model.Carrinho;
 import com.belval.gestaominimercado.model.Produto;
 import com.belval.gestaominimercado.repository.CarrinhoRepository;
+import com.belval.gestaominimercado.repository.ItemCarrinhoRepository;
 import com.belval.gestaominimercado.repository.ProdutoRepository;
+import com.belval.gestaominimercado.service.CarrinhoService;
+import com.belval.gestaominimercado.service.ItemCarrinhoService;
 
 @Controller
 @RequestMapping("/carrinho")
@@ -25,10 +27,19 @@ public class CarrinhoController {
 //	Carrinho carrinho2;
 	
 	@Autowired
+	private ItemCarrinhoService itemCarrinhoService;
+	
+	@Autowired
+	private CarrinhoService carrinhoService;
+	
+	@Autowired
     private ProdutoRepository produtoRepository;
 	
 	@Autowired
     private CarrinhoRepository carrinhoRepository;
+	
+	@Autowired
+	private ItemCarrinhoRepository itemCarrinhoRepository;
 	
 	private Carrinho carrinho = new Carrinho();
 	
@@ -47,9 +58,12 @@ public class CarrinhoController {
         return "Carrinho";
     }
 	@PostMapping("/carrinho")
-    public String adicionarProduto(Model model, @RequestParam int id) {
-     //   Carrinho item = new Carrinho(id);
-     //   carrinhoRepository.save(item);
+    public String adicionarProduto(Model model, @RequestParam int id, ItemCarrinho itemCarrinho) {
+		  Carrinho carrinho = carrinhoService.findByStatus("pendente");
+		  if(carrinho.getStatusCarrinho().equals("pendente"))
+          itemCarrinhoRepository.save(itemCarrinho);
+		  else
+			  carrinhoService.save(new Carrinho(0.0, "Pendente"));
         return "redirect:/Carrinho";
     }
 	
