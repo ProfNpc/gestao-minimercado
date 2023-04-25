@@ -18,4 +18,9 @@ public class CarrinhoServiceImpl implements CarrinhoService {
 		
 		return carrinhoRepository.save(carrinho);
 	}
+
+	@Override
+	public Carrinho findByStatus(String Status) {
+		return findByStatus(Status);
+	}
 }

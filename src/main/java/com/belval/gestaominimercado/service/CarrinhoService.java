@@ -10,4 +10,6 @@ import com.belval.gestaominimercado.model.ItemCarrinho;
 @Service
 public interface CarrinhoService {
 	Carrinho save (Carrinho carrinho);
+
+	Carrinho findByStatus(String Status);
 }
