@@ -11,4 +11,5 @@ public interface ClienteService extends UserDetailsService {
 	Cliente save(ClienteDto userDto);
 	Cliente findByEmail(ClienteDto userDto);
 	Cliente update(Cliente user);
+	Cliente findById(int id);
 }

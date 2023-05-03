@@ -25,7 +25,7 @@
                 <!-- <legend><h3>Login</h3></legend> -->
 
                 <h3>Login</h3>
-
+                <form th:action="@{cliente/login}" method="POST">
                 <div  class="inputBox">
                     <input type="text" required="email">
                     <span>Email</span>
@@ -44,8 +44,8 @@
         
             
             <button type="submit">Entrar</button>
-            <a href="/tc"><button type="submit"><b>Cadastro</b></button></a>
-
+            <a th:href="@{/cliente/cadastro}"><button type="submit"><b>Cadastro</b></button></a>
+            </form>
             <!-- </b> -->
         <!-- </fieldset> -->
 

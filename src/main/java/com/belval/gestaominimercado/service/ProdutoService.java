@@ -21,4 +21,7 @@ public class ProdutoService {
 	public List<Produto> listar() {
 	    return produtoRepository.findAll();
 	  }
+	public Produto findById(int id) {
+		return produtoRepository.findById(id);
+	}
 }

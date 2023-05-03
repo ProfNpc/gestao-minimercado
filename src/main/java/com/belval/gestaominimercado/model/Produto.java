@@ -1,6 +1,8 @@
 package com.belval.gestaominimercado.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -28,7 +30,7 @@ public class Produto {
 	private double preco;
 	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-	private Set<ItemCarrinho> itensCarrinho = new HashSet<>();
+	private List<ItemCarrinho> itensCarrinho = new ArrayList<>();
 
 	public Produto(int id, String nome, String descricao, double preco) {
 		super();
@@ -73,14 +75,16 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	
-	public Set<ItemCarrinho> getItensCarrinho() {
+
+	public List<ItemCarrinho> getItensCarrinho() {
 		return itensCarrinho;
 	}
 
-	public void setItensCarrinho(Set<ItemCarrinho> itensCarrinho) {
+	public void setItensCarrinho(List<ItemCarrinho> itensCarrinho) {
 		this.itensCarrinho = itensCarrinho;
 	}
+	
+
 	
 
 }

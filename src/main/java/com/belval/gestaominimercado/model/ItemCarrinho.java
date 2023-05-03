@@ -41,7 +41,14 @@ public class ItemCarrinho {
 	
 	}
 
-	public ItemCarrinho( Produto produto, Carrinho carrinho, int quantidade, double precoUnitario, double desconto) {
+	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto) {
+		this.produto = produto;
+		this.quantidade = quantidade;
+		this.precoUnitario = precoUnitario;
+		this.desconto = desconto;
+	}
+	
+	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto, Carrinho carrinho) {
 		this.produto = produto;
 		this.carrinho = carrinho;
 		this.quantidade = quantidade;

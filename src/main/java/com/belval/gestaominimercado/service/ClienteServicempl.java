@@ -71,6 +71,12 @@ public class ClienteServicempl implements ClienteService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Cliente findById(int id) {
+		// TODO Auto-generated method stub
+		return findById(id);
+	}
 	
 
 }
