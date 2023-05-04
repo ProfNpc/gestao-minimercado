@@ -7,12 +7,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="item : ${carrinho}">
-                <td th:text="${item.produto.nome}"></td>
-                <td th:text="${item.produto.preco}"></td>
+            <tr th:each="itemcarrinho : ${itens}">
+                <td th:text="${itemcarrinho.produto.nome}"></td>
+                <td th:text="${itemcarrinho.produto.preco}"></td>
                 <td>
                 <form method="post" action="/carrinho/remover">
-                <input type="hidden" name="id" th:value="${item.id}"/>
+                <input type="hidden" name="id" th:value="${itemcarrinho.id}"/>
                 <button type="submit">Remover</button>
                 </td>
             </tr>

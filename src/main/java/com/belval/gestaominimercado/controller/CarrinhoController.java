@@ -51,6 +51,8 @@ public class CarrinhoController {
 	@Autowired
 	private ItemCarrinhoRepository itemCarrinhoRepository;
 	
+	private List<ItemCarrinho> itens;
+	
 	private Carrinho carrinho = new Carrinho();
 	
 	
@@ -80,32 +82,25 @@ public class CarrinhoController {
         model.addAttribute("itensCarrinho", listaItensCarrinho);
         return "Carrinho";
     }
-	@PostMapping("/carrinho/{id}")
-    public ModelAndView adicionarProduto(@PathVariable("id") int id , Model model,Carrinho carrinho, ItemCarrinho itemCarrinho) {
-		Cliente cliente = clienteService.findById(id);
-		Produto produto = produtoService.findById(id);
-		if (carrinhoRepository.findByCliente(cliente) == null) {
+	@PostMapping("/carrinho/add")
+    public String adicionarProduto(int id, ItemCarrinho itemCarrinho) {
+		/*if (carrinhoRepository.findByCliente(cliente) == null) {
 			carrinho.setCliente(cliente);
 			carrinhoRepository.save(carrinho);
 		} else {
 			carrinho = carrinhoRepository.findByCliente(cliente);
 		}
-		
-		itemCarrinho.setCarrinho(carrinho);
+		*/
+		Produto produto = produtoRepository.findById(id);
 		itemCarrinho.setProduto(produto);
-		itemCarrinhoRepository.save(itemCarrinho);
-		ModelAndView mv = new ModelAndView("redirect:/carrinho");
-		return mv;
+		itens.add(itemCarrinho);
+		return ("redirect:/carrinho");
     }
 	
-	@PostMapping("/remover")
-    public String removerProduto(Model model, @RequestParam int id) {
-        Produto produto = produtoRepository.findById(id);
-        carrinhoRepository.delete(carrinho);
-        List<Produto> produtos = produtoRepository.findAll();
-        model.addAttribute("produtos", produtos);
-        model.addAttribute("carrinho", carrinho);
-        return "listarProdutos";
+	@PostMapping("/carrinho/remover")
+    public String removerProduto(int id) {
+		itens.remove(id);
+        return ("redirect:/carrinho");
     }
 	
 	
