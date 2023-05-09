@@ -31,12 +31,12 @@ public class AuthController {
 	
 	@GetMapping("/registration")
 	public String showRegistrationForm() {
-		return "registration";
+		return "RegistroUser";
 	}
 	@PostMapping("/registration")
 	public String registerClienteAccount(@ModelAttribute("user") ClienteDto userDto) {
 		userService.save(userDto);
-		return "redirect:/registration?success";
+		return "redirect:/RegistroUser?success";
 	}
 	
 	@ResponseBody
