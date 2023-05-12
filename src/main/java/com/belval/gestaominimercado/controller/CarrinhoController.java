@@ -62,7 +62,7 @@ public class CarrinhoController {
 
 	       model.addAttribute("produtos", produtos);
 
-	        return "mercado";
+	        return "mercado/Mercado";
 	    }
 	    
 	

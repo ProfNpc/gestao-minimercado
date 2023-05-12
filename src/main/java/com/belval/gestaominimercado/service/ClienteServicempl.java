@@ -2,6 +2,7 @@ package com.belval.gestaominimercado.service;
 
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -60,7 +61,8 @@ public class ClienteServicempl implements ClienteService {
 				passwordEncoder.encode(userDto.getSenha()),
 				userDto.getEndereco(),
 				userDto.getCpf(),
-				Arrays.asList(new Role("ROLE_USER")));
+				new ArrayList<>());
+				//Arrays.asList(new Role("ROLE_USER")));
 		
 		clienteRepository.save(user);
 		this.addRoleToUser(user.getEmail(), "ROLE_USER");

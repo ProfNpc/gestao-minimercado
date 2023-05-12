@@ -25,15 +25,15 @@
                 <!-- <legend><h3>Login</h3></legend> -->
 
                 <h3>Login</h3>
-                <form th:action="@{cliente/login}" method="POST">
+                <form th:action="@{/login}" method="POST">
                 <div  class="inputBox">
-                    <input type="text" required="email">
+                    <input type="text" required="email" name="username">
                     <span>Email</span>
                 </div>
 
 
                 <div  class="inputBox">
-                    <input type="password" required="senha">
+                    <input type="password" required="senha" name="password">
                     <span>Senha</span>
                 </div>
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.belval.gestaominimercado.model.Carrinho;
 import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.service.ClienteService;
 import com.belval.gestaominimercado.web.dto.ClienteDto;
@@ -16,27 +17,27 @@ import com.belval.gestaominimercado.web.dto.ClienteDto;
 public class AuthController {
 	
 	
-	private ClienteService userService;
+	private ClienteService clienteService;
 	
-	public AuthController(ClienteService userService) {
+	public AuthController(ClienteService clienteService) {
 		
-		this.userService = userService;
+		this.clienteService = clienteService;
 	}
 	
 	
-	@ModelAttribute("user")
-	public ClienteDto userDto() {
+	@ModelAttribute("cliente")
+	public ClienteDto clienteDto() {
 		return new ClienteDto();
 	}
 	
-	@GetMapping("/registration")
-	public String showRegistrationForm() {
-		return "RegistroUser";
+	@GetMapping("/cliente/cadastro")
+	public String cadastro() {
+		return "cliente/RegistroUser";
 	}
-	@PostMapping("/registration")
-	public String registerClienteAccount(@ModelAttribute("user") ClienteDto userDto) {
-		userService.save(userDto);
-		return "redirect:/RegistroUser?success";
+	@PostMapping("/cliente/cadastro")
+	public String cadastro(@ModelAttribute("cliente") ClienteDto clienteDto) {
+		clienteService.save(clienteDto);
+		return "redirect:/cliente/login";
 	}
 	
 	@ResponseBody
@@ -47,7 +48,7 @@ public class AuthController {
 		String msg= "";
 		ClienteDto userDto = new ClienteDto();
 		userDto.setEmail(valor);
-		Cliente user = userService.findByEmail(userDto);
+		Cliente user = clienteService.findByEmail(userDto);
 		if(user != null) {
 			msg = "Email já existe, escolha um email válido!";
 		}

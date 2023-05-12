@@ -22,7 +22,7 @@ public class ProdutoController {
 	@GetMapping("/produto/cadastro")
 	public String add(Model model) { 
 		model.addAttribute("produto", new Produto());
-		return "RegistroP";
+		return "mercado/produto/RegistroP";
 	}
 	@PostMapping("/produto/cadastro")
 	public String add(@ModelAttribute("produto") Produto produto) {
@@ -34,14 +34,14 @@ public class ProdutoController {
 	public String listar(Model model) {
 		List<Produto> produtos = produtoRepository.findAll();
 		model.addAttribute("produtos", produtos);
-		return "ListaP";
+		return "mercado/produto/ListaP";
 	}
 	
 	@GetMapping("editar/{id}")
 	public String att(@PathVariable("id") int id, Model model) {
 		Produto produto = produtoRepository.findById(id);
 		model.addAttribute("produto", produto);
-		return "EditP";
+		return "FD/EditP";
 	}
 	@PostMapping("atualizar")
 	public String att(@ModelAttribute("produto") Produto produto) {
@@ -60,6 +60,6 @@ public class ProdutoController {
 	public String exibirDetalhes(@PathVariable("id") int id, Model model) {
 	    Produto produto = produtoRepository.findById(id);
 	    model.addAttribute("produto", produto);
-	    return "DetalheP";
+	    return "FD/DetalheP";
 	}
 }

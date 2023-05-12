@@ -43,18 +43,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable();
 		http.authorizeRequests().antMatchers(
 				"/registration**",
-				"/registration/**",
+				"/cliente/registro",
+				"/api/**",
 				"/js/**",
 				"/css/**",
 				"/img/**"
 				).permitAll()
 		      .and()
-		      .authorizeRequests().antMatchers(GET, "/users/**").hasAnyAuthority("ROLE_USER")
+		      .authorizeRequests().antMatchers(GET, "/mercado/**").hasAnyAuthority("ROLE_USER")
 	          .anyRequest().authenticated()
 	          .and()
-	          .formLogin().defaultSuccessUrl("/users/home", true)
+	          .formLogin().defaultSuccessUrl("/mercado/m1", true)
 	          .loginPage("/login")
 	          .permitAll()
 	          .and()

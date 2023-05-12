@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.belval.gestaominimercado.model.Role;
 import com.belval.gestaominimercado.service.ClienteService;
 
 @SpringBootApplication
@@ -17,10 +18,10 @@ public class GestaominimercadoApplication {
 	@Bean
 	CommandLineRunner run(ClienteService clienteService) {
 		return args -> {
-			//userService.saveRole(new Role("ROLE_USER"));
-			//userService.saveRole(new Role("ROLE_ADMIN"));
-			//userService.saveRole(new Role("ROLE_INSTRUCTOR"));
-			//userService.saveRole(new Role("ROLE_STUDANT"));	
+			//clienteService.saveRole(new Role("ROLE_USER"));
+			//clienteService.saveRole(new Role("ROLE_ADMIN"));
+			//clienteService.saveRole(new Role("ROLE_INSTRUCTOR"));
+			//clienteService.saveRole(new Role("ROLE_STUDANT"));	
 		};
 }
 }

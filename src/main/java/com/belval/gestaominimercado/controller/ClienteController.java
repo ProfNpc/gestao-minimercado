@@ -26,21 +26,9 @@ public class ClienteController {
 		return new ClienteDto();
 	}
 	
-	
-	@GetMapping("/cliente/cadastro")
-	public String cadastro() {
-		return "RegistroUser";
-	}
-	@PostMapping("/cliente/cadastro")
-	public String cadastro(@ModelAttribute("user") ClienteDto clienteDto) {
-		clienteService.save(clienteDto);
-		carrinhoService.save(new Carrinho(0.0, "Pendente"));
-		return "redirect:/cliente/login";
-	}
-	
-	@GetMapping("/cliente/login")
+	@GetMapping("/login")
 	public String login() {
-		return "Login";
+		return "cliente/Login";
 	}
 	/*
 	@GetMapping("/cliente/detalhe/{id}")
