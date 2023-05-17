@@ -1,6 +1,8 @@
 package com.belval.gestaominimercado.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,7 +53,7 @@ public class CarrinhoController {
 	@Autowired
 	private ItemCarrinhoRepository itemCarrinhoRepository;
 	
-	private List<ItemCarrinho> itens;
+	private List<ItemCarrinho> itens= new ArrayList<>();;
 	
 	private Carrinho carrinho = new Carrinho();
 	
@@ -78,8 +80,7 @@ public class CarrinhoController {
 	
 	@GetMapping("/carrinho")
 	public String Carrinho(Model model) {
-        List<Carrinho> listaItensCarrinho = carrinhoRepository.findAll();
-        model.addAttribute("itensCarrinho", listaItensCarrinho);
+        model.addAttribute("itens", itens);
         return "Carrinho";
     }
 	@PostMapping("/carrinho/add")
@@ -93,6 +94,8 @@ public class CarrinhoController {
 		*/
 		Produto produto = produtoRepository.findById(id);
 		itemCarrinho.setProduto(produto);
+		//itemCarrinho.setPrecoUnitario(precoU);
+		
 		itens.add(itemCarrinho);
 		return ("redirect:/carrinho");
     }
