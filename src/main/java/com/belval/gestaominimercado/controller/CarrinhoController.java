@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +34,14 @@ import com.belval.gestaominimercado.service.ProdutoService;
 
 public class CarrinhoController {
 	
+	ArrayList<Carrinho> ListaDeCarrinhos = new ArrayList<>();
+	ArrayList<ItemCarrinho> itens= new ArrayList<>();
+	HttpSession session;
+	int totalItens = 0;
+	double valorTotalCarrinho = 0;
+	
+	Carrinho carrinho = new Carrinho();
+	
 	//@Resource(name="carrinhoSessao")
 //	Carrinho carrinho2;
 	@Autowired
@@ -52,10 +64,6 @@ public class CarrinhoController {
 	
 	@Autowired
 	private ItemCarrinhoRepository itemCarrinhoRepository;
-	
-	private List<ItemCarrinho> itens= new ArrayList<>();;
-	
-	private Carrinho carrinho = new Carrinho();
 	
 	
 	   @GetMapping("/mercado/m1")
@@ -81,7 +89,7 @@ public class CarrinhoController {
 	@GetMapping("/carrinho")
 	public String Carrinho(Model model) {
         model.addAttribute("itens", itens);
-        return "Carrinho";
+        return "carrinho/Carrinho";
     }
 	@PostMapping("/carrinho/add")
     public String adicionarProduto(int id, ItemCarrinho itemCarrinho) {
@@ -102,9 +110,22 @@ public class CarrinhoController {
 	
 	@PostMapping("/carrinho/remover")
     public String removerProduto(int id) {
+		if(id==1) {
+			itens.remove(0);
+		}
+		else
 		itens.remove(id);
         return ("redirect:/carrinho");
     }
 	
+	@RequestMapping(value = "/comercio/ItemSession")
+	public String addItemSession(HttpServletRequest req, HttpServletResponse res ) {
+		String id = req.getParameter("idProduto");
+		
+		session = req.getSession();
+		
+		int idI= Integer.parseInt(id);
+		Produto produto = produtoService.findById(idI);
+		}
 	
 }
