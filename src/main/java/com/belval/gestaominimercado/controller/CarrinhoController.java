@@ -91,22 +91,6 @@ public class CarrinhoController {
         model.addAttribute("itens", itens);
         return "carrinho/Carrinho";
     }
-	@PostMapping("/carrinho/add")
-    public String adicionarProduto(int id, ItemCarrinho itemCarrinho) {
-		/*if (carrinhoRepository.findByCliente(cliente) == null) {
-			carrinho.setCliente(cliente);
-			carrinhoRepository.save(carrinho);
-		} else {
-			carrinho = carrinhoRepository.findByCliente(cliente);
-		}
-		*/
-		Produto produto = produtoRepository.findById(id);
-		itemCarrinho.setProduto(produto);
-		//itemCarrinho.setPrecoUnitario(precoU);
-		
-		itens.add(itemCarrinho);
-		return ("redirect:/carrinho");
-    }
 	
 	@PostMapping("/carrinho/remover")
     public String removerProduto(int id) {
@@ -117,15 +101,65 @@ public class CarrinhoController {
 		itens.remove(id);
         return ("redirect:/carrinho");
     }
+	@PostMapping("/carrinho/remover")
+	public String deleteItem (HttpServletRequest req, HttpServletResponse res, int id) {
+		
+ 
+    	    String id = req.getParameter("idProduto");
+
+			long idProduto = Long.parseLong(id);
+		
+		session = req.getSession();
+		ArrayList<ItemCarrinho> listaDeI = (ArrayList<ItemCarrinho>) session.getAttribute("itens") == null
+				? itens
+				: (ArrayList<ItemCarrinho>) session.getAttribute("itens");
+		
+		// Procurar item na lista de itens
+		boolean achei = false;
+		
+		for(int i=0; i < listaDeI.size(); i++) {
+			if(itens.get(i).getProduto().getId() == idProduto ) {
+					itens.remove(itens.get(i));
+				achei = true;
+				break;
+			}
+			
+		}
+		
+		return "redirect:/comercio/cart";
+	}
 	
-	@RequestMapping(value = "/comercio/ItemSession")
-	public String addItemSession(HttpServletRequest req, HttpServletResponse res ) {
-		String id = req.getParameter("idProduto");
+	@PostMapping("/carrinho/add")
+	public String addItemSession(HttpServletRequest req, HttpServletResponse res, int id) {
 		
 		session = req.getSession();
 		
-		int idI= Integer.parseInt(id);
-		Produto produto = produtoService.findById(idI);
+		Produto produto = produtoService.findById(id);
+		boolean achei = false;
+		if(itens.size() > 0) {
+		for(int i =0; i < itens.size(); i++) {
+			if(itens.get(i).getProduto().getId() == produto.getId()) {
+				itens.get(i).setQuantidade(itens.get(i).getQuantidade() + 1);
+				achei = true;
+				break;
+			}else {
+				achei = false;
+			}
+			
+		}
+		if(achei == false) {
+		   ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
+		   itens.add(itemCarrinho);
+		}
+		
+		}else {
+			ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
+			itens.add(itemCarrinho);
+		}
+		session.setAttribute("itens", itens);
+        
+		
+		return "redirect:/mercado/m1";
 		}
 	
 }
