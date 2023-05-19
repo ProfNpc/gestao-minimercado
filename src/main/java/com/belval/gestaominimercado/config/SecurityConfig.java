@@ -50,7 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				"/api/**",
 				"/js/**",
 				"/css/**",
-				"/img/**"
+				"/img/**",
+				"/static/**"
 				).permitAll()
 		      .and()
 		      .authorizeRequests().antMatchers(GET, "/mercado/**").hasAnyAuthority("ROLE_USER")

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -74,51 +75,50 @@ public class CarrinhoController {
 
 	        return "mercado/Mercado";
 	    }
-	    
-	
-	
-	/*
-	@GetMapping("/mercado")
-    public String listarProdutos(Model model) {
-        List<Produto> produtos = produtoRepository.findAll();
-        model.addAttribute("produtos", produtos);
-        model.addAttribute("carrinho", carrinho);
-        return "Mercado";
-    }*/
-	
+
 	@GetMapping("/carrinho")
 	public String Carrinho(Model model) {
         model.addAttribute("itens", itens);
         return "carrinho/Carrinho";
     }
+	@PostMapping("/carrinho/menos")
+	public String menos (@RequestBody ItemCarrinho itemCarrinho,HttpServletRequest req, HttpServletResponse res,int id) {
+		boolean achei = false;
+		for(int i=0; i < itens.size(); i++) {
+			if(itens.get(i).getProduto().getId() == id) {
+				
+				if(itemCarrinho.getQuantidade() == 0) {
+					// remover da lista
+					itens.remove(itens.get(i));
+				}else {
+				   itens.get(i).setQuantidade(1);
+				   if(itemCarrinho.getQuantidade() == 0) {
+						// remover da lista
+						itens.remove(itens.get(i));
+				   }
+				}
+				//itemCarrinho = itens.get(i);
+				
+				//System.out.println("Quantidade de produtos do " + (i + 1 ) + "º item: " + itens.get(i).getQuantidade());
+				achei = true;
+				break;
+			}else {
+				achei = false;
+			}
+			
+		}
+		return "redirect:/carrinho";
+		
+	}
 	
 	@PostMapping("/carrinho/remover")
-    public String removerProduto(int id) {
-		if(id==1) {
-			itens.remove(0);
-		}
-		else
-		itens.remove(id);
-        return ("redirect:/carrinho");
-    }
-	@PostMapping("/carrinho/remover")
 	public String deleteItem (HttpServletRequest req, HttpServletResponse res, int id) {
-		
- 
-    	    String id = req.getParameter("idProduto");
-
-			long idProduto = Long.parseLong(id);
-		
 		session = req.getSession();
-		ArrayList<ItemCarrinho> listaDeI = (ArrayList<ItemCarrinho>) session.getAttribute("itens") == null
-				? itens
-				: (ArrayList<ItemCarrinho>) session.getAttribute("itens");
-		
 		// Procurar item na lista de itens
 		boolean achei = false;
 		
-		for(int i=0; i < listaDeI.size(); i++) {
-			if(itens.get(i).getProduto().getId() == idProduto ) {
+		for(int i=0; i < itens.size(); i++) {
+			if(itens.get(i).getProduto().getId() == id) {
 					itens.remove(itens.get(i));
 				achei = true;
 				break;
@@ -126,7 +126,7 @@ public class CarrinhoController {
 			
 		}
 		
-		return "redirect:/comercio/cart";
+		return "redirect:/carrinho";
 	}
 	
 	@PostMapping("/carrinho/add")

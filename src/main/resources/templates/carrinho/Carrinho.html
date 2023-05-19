@@ -11,8 +11,18 @@
                 <td th:text="${itemcarrinho.produto.nome}"></td>
                 <td th:text="${itemcarrinho.produto.preco}"></td>
                 <td>
+                <form method="post" action="/carrinho/menos">
+                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
+                <button type="submit"><</button>
+                <form/>
+                <input style="width:30px" th:value="${itemcarrinho.quantidade}">
                 <form method="post" action="/carrinho/remover">
-                <input type="hidden" name="id" th:value="${itemcarrinho.id}"/>
+                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
+                <button type="submit">></button>
+                </td>
+                <td>
+                <form method="post" action="/carrinho/remover">
+                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
                 <button type="submit">Remover</button>
                 </td>
             </tr>
