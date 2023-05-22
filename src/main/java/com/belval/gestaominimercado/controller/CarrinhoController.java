@@ -81,8 +81,22 @@ public class CarrinhoController {
         model.addAttribute("itens", itens);
         return "carrinho/Carrinho";
     }
-	@PostMapping("/carrinho/menos")
-	public String menos (@RequestBody ItemCarrinho itemCarrinho,HttpServletRequest req, HttpServletResponse res,int id) {
+	
+	@PostMapping("/carrinho/finish")
+	public String finish (HttpServletRequest req, HttpServletResponse res,String sts,double valor) {
+		session = req.getSession();
+		int cId = (int) req.getSession().getAttribute("clienteId");
+		Cliente cliente= clienteService.findById(cId);
+		carrinho.setCliente(cliente);
+		carrinho.setStatusCarrinho(sts);
+		carrinho.setValor(valor);
+		carrinho.setItensCarrinho(itens);
+		return "redirect:/carrinho";
+	}
+	
+	@PostMapping("/carrinho/att")
+	public String menos (@RequestBody ItemCarrinho itemCarrinho,HttpServletRequest req, HttpServletResponse res,int id,int quantidade) {
+		session = req.getSession();
 		boolean achei = false;
 		for(int i=0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == id) {
@@ -91,7 +105,7 @@ public class CarrinhoController {
 					// remover da lista
 					itens.remove(itens.get(i));
 				}else {
-				   itens.get(i).setQuantidade(1);
+				   itens.get(i).setQuantidade(quantidade);
 				   if(itemCarrinho.getQuantidade() == 0) {
 						// remover da lista
 						itens.remove(itens.get(i));
