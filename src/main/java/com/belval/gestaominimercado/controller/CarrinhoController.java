@@ -83,13 +83,13 @@ public class CarrinhoController {
     }
 	
 	@PostMapping("/carrinho/finish")
-	public String finish (HttpServletRequest req, HttpServletResponse res,String sts,double valor) {
+	public String finish (HttpServletRequest req, HttpServletResponse res,String sts) {
 		session = req.getSession();
 		int cId = (int) req.getSession().getAttribute("clienteId");
 		Cliente cliente= clienteService.findById(cId);
 		carrinho.setCliente(cliente);
 		carrinho.setStatusCarrinho(sts);
-		carrinho.setValor(valor);
+		//carrinho.setValor(valor);
 		carrinho.setItensCarrinho(itens);
 		return "redirect:/carrinho";
 	}

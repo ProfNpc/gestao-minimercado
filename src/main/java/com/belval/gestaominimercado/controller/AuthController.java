@@ -37,7 +37,7 @@ public class AuthController {
 	@PostMapping("/cliente/cadastro")
 	public String cadastro(@ModelAttribute("cliente") ClienteDto clienteDto) {
 		clienteService.save(clienteDto);
-		return "redirect:/cliente/login";
+		return "redirect:/login";
 	}
 	
 	@ResponseBody
