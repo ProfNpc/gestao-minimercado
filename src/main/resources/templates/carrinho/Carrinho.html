@@ -16,7 +16,7 @@
                 <form method="post" action="/carrinho/att">
                 <input style="width:30px" name="quantidade" th:value="${itemcarrinho.quantidade}">
                 <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
-                <input type="hidden" name="idIt" th:value="${itemcarrinho.id}"/>
+                <input type="hidden" name="idIt" th:value="${itemcarrinho.id2}"/>
                 </form>
                 </td>
                 <td>
@@ -36,5 +36,6 @@
     </table>
     <form method="post" action="/carrinho/finish">
     <input type="hidden" name="sts" value="Finalizado"/>
+    <input type="hidden" name="valor" th:value="${#aggregates.sum(itens.![precoTotal])}"/>
     <button type="submit">Finalizar Compra</button>
     </form>

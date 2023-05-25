@@ -20,4 +20,7 @@ public class ItemCarrinhoService {
 	public ItemCarrinho findById(long idIt) {
 		return itemCarrinhoRepository.findById(idIt);
 	}
+	public ItemCarrinho findById2(long idIt) {
+		return itemCarrinhoRepository.findById(idIt);
+	}
 }

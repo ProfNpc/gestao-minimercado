@@ -19,6 +19,7 @@ public class ItemCarrinho {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
+	private int id2;
 	
 	@ManyToOne
 	@JoinColumn(name = "carrinho_id")
@@ -41,14 +42,15 @@ public class ItemCarrinho {
 	
 	}
 
-	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto, double precoTotal) {
+	public ItemCarrinho( int id,Produto produto,  int quantidade, double precoUnitario, double desconto, double precoTotal) {
+		this.id2 = id;
 		this.produto = produto;
 		this.quantidade = quantidade;
 		this.precoUnitario = precoUnitario;
 		this.desconto = desconto;
 		this.precoTotal = precoTotal;
 	}
-	
+
 	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto, Carrinho carrinho) {
 		this.produto = produto;
 		this.carrinho = carrinho;
@@ -59,6 +61,14 @@ public class ItemCarrinho {
 
 	public Long getId() {
 		return id;
+	}
+
+	public int getId2() {
+		return id2;
+	}
+
+	public void setId2(int id2) {
+		this.id2 = id2;
 	}
 
 	public void setId(Long id) {

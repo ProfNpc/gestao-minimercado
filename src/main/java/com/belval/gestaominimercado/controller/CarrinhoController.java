@@ -85,45 +85,29 @@ public class CarrinhoController {
     }
 	
 	@PostMapping("/carrinho/finish")
-	public String finish (HttpServletRequest req, HttpServletResponse res,String sts) {
+	public String finish (HttpServletRequest req, HttpServletResponse res,String sts, Double valor) {
 		session = req.getSession();
-		int cId = (int) req.getSession().getAttribute("clienteId");
+		/*int cId = (int) req.getSession().getAttribute("clienteId");
 		Cliente cliente= clienteService.findById(cId);
-		carrinho.setCliente(cliente);
+		carrinho.setCliente(cliente);*/
 		carrinho.setStatusCarrinho(sts);
-		//carrinho.setValor(valor);
+		carrinho.setValor(valor);
 		carrinho.setItensCarrinho(itens);
 		return "redirect:/carrinho";
 	}
 	
 	@PostMapping("/carrinho/att")
-	public String menos (HttpServletRequest req, HttpServletResponse res,int id,long idIt,int quantidade) {
+	public String menos (HttpServletRequest req, HttpServletResponse res,int id,int idIt,int quantidade) {
 		session = req.getSession();
-		boolean achei = false;
-		ItemCarrinho itemCarrinho = itemCarrinhoService.findById(idIt);
-		for(int i=0; i < itens.size(); i++) {
+		Produto produto = produtoService.findById(id);
+		ItemCarrinho itemCarrinho = new ItemCarrinho(idIt,produto, quantidade, produto.getPreco(), 0,produto.getPreco()*quantidade);
+	    itens.add(itemCarrinho);
+	    for(int i=0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == id) {
-				
-				if(itemCarrinho.getQuantidade() == 0) {
-					// remover da lista
 					itens.remove(itens.get(i));
-				}else {
-				   itens.get(i).setQuantidade(quantidade);
-				   if(itemCarrinho.getQuantidade() == 0) {
-						// remover da lista
-						itens.remove(itens.get(i));
-				   }
-				}
-				//itemCarrinho = itens.get(i);
-				
-				//System.out.println("Quantidade de produtos do " + (i + 1 ) + "º item: " + itens.get(i).getQuantidade());
-				achei = true;
 				break;
-			}else {
-				achei = false;
 			}
-			
-		}
+	    }
 		return "redirect:/carrinho";
 		
 	}
@@ -142,7 +126,6 @@ public class CarrinhoController {
 			}
 			
 		}
-		
 		return "redirect:/carrinho";
 	}
 	
@@ -167,12 +150,12 @@ public class CarrinhoController {
 		}
 		
 		if(achei == false) {
-		   ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0,produto.getPreco());
+		   ItemCarrinho itemCarrinho = new ItemCarrinho(itens.size()+1,produto, 1, produto.getPreco(), 0,produto.getPreco());
 		   itens.add(itemCarrinho);
 		}
 		
 		}else {
-			ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0,produto.getPreco());
+			ItemCarrinho itemCarrinho = new ItemCarrinho(itens.size()+1,produto, 1, produto.getPreco(), 0,produto.getPreco());
 			itens.add(itemCarrinho);
 		
 		}

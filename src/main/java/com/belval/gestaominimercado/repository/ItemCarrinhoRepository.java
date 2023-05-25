@@ -7,5 +7,6 @@ import com.belval.gestaominimercado.model.ItemCarrinho;
 public interface ItemCarrinhoRepository extends JpaRepository<ItemCarrinho, Long> {
 	
 	ItemCarrinho findById(long id);
+	ItemCarrinho findById2(long id2);
 
 }
