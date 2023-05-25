@@ -34,18 +34,19 @@ public class ItemCarrinho {
 	private int quantidade;
 	@Column (name="preco_unitario")
 	private double precoUnitario;
-	
+	private double precoTotal;
 	private double desconto;
 	
 	public ItemCarrinho() {
 	
 	}
 
-	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto) {
+	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto, double precoTotal) {
 		this.produto = produto;
 		this.quantidade = quantidade;
 		this.precoUnitario = precoUnitario;
 		this.desconto = desconto;
+		this.precoTotal = precoTotal;
 	}
 	
 	public ItemCarrinho( Produto produto,  int quantidade, double precoUnitario, double desconto, Carrinho carrinho) {
@@ -98,6 +99,14 @@ public class ItemCarrinho {
 
 	public double getDesconto() {
 		return desconto;
+	}
+
+	public double getPrecoTotal() {
+		return precoTotal;
+	}
+
+	public void setPrecoTotal(double precoTotal) {
+		this.precoTotal = precoTotal;
 	}
 
 	public void setDesconto(double desconto) {

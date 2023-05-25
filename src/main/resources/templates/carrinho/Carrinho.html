@@ -11,7 +11,7 @@
             <tr th:each="itemcarrinho : ${itens}">
                 <td th:text="${itemcarrinho.produto.nome}"></td>
                 <td th:text="${itemcarrinho.produto.preco}"></td>
-                <td th:text="${itemcarrinho.produto.preco*itemcarrinho.quantidade}"></td>
+                <td th:text="${itemcarrinho.precoTotal}"></td>
                 <td>
                 <form method="post" action="/carrinho/att">
                 <input style="width:30px" name="quantidade" th:value="${itemcarrinho.quantidade}">
@@ -30,7 +30,7 @@
         <tfoot>
      <tr>
      <td colspan="2">Total</td>
-     <td th:text="${#aggregates.sum(itens.![produto.preco])}"></td>
+     <td th:text="${#aggregates.sum(itens.![precoTotal])}"></td>
      </tr>
     </tfoot>
     </table>

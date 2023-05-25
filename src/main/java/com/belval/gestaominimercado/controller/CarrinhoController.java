@@ -157,6 +157,7 @@ public class CarrinhoController {
 		for(int i =0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == produto.getId()) {
 				itens.get(i).setQuantidade(itens.get(i).getQuantidade() + 1);
+				itens.get(i).setPrecoTotal(itens.get(i).getQuantidade()*itens.get(i).getPrecoUnitario());
 				achei = true;
 				break;
 			}else {
@@ -164,16 +165,16 @@ public class CarrinhoController {
 			}
 			
 		}
-		if(itens.size()==0){
+		
 		if(achei == false) {
-		   ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
+		   ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0,produto.getPreco());
 		   itens.add(itemCarrinho);
 		}
 		
 		}else {
-			ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
+			ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0,produto.getPreco());
 			itens.add(itemCarrinho);
-		}
+		
 		}
 		session.setAttribute("itens", itens);
         
