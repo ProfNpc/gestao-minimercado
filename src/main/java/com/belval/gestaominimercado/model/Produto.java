@@ -28,6 +28,8 @@ public class Produto {
 	private String descricao;
 	@Column
 	private double preco;
+	@Column
+	private int quantidade;
 	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	private List<ItemCarrinho> itensCarrinho = new ArrayList<>();
@@ -74,6 +76,14 @@ public class Produto {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	public List<ItemCarrinho> getItensCarrinho() {

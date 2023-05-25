@@ -1,13 +1,14 @@
 package com.belval.gestaominimercado.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.belval.gestaominimercado.model.ItemCarrinho;
 import com.belval.gestaominimercado.repository.ItemCarrinhoRepository;
 
+@Service
 public class ItemCarrinhoService {
 	@Autowired
 	private ItemCarrinhoRepository itemCarrinhoRepository;
@@ -16,8 +17,7 @@ public class ItemCarrinhoService {
 		return itemCarrinhoRepository.findAll();
 	}
 
-	public ItemCarrinho findById(Long id) {
-		Optional<ItemCarrinho> obj = itemCarrinhoRepository.findById(id);
-		return obj.get();
+	public ItemCarrinho findById(long idIt) {
+		return itemCarrinhoRepository.findById(idIt);
 	}
 }

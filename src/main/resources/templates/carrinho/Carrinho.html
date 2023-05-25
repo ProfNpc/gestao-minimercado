@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Produto</th>
+                <th>PreçoUni</th>
                 <th>Preço</th>
             </tr>
         </thead>
@@ -10,10 +11,12 @@
             <tr th:each="itemcarrinho : ${itens}">
                 <td th:text="${itemcarrinho.produto.nome}"></td>
                 <td th:text="${itemcarrinho.produto.preco}"></td>
+                <td th:text="${itemcarrinho.produto.preco*itemcarrinho.quantidade}"></td>
                 <td>
                 <form method="post" action="/carrinho/att">
                 <input style="width:30px" name="quantidade" th:value="${itemcarrinho.quantidade}">
                 <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
+                <input type="hidden" name="idIt" th:value="${itemcarrinho.id}"/>
                 </form>
                 </td>
                 <td>
@@ -24,6 +27,12 @@
                 </td>
             </tr>
         </tbody>
+        <tfoot>
+     <tr>
+     <td colspan="2">Total</td>
+     <td th:text="${#aggregates.sum(itens.![produto.preco])}"></td>
+     </tr>
+    </tfoot>
     </table>
     <form method="post" action="/carrinho/finish">
     <input type="hidden" name="sts" value="Finalizado"/>

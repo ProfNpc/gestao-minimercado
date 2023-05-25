@@ -66,6 +66,8 @@ public class CarrinhoController {
 	@Autowired
 	private ItemCarrinhoRepository itemCarrinhoRepository;
 	
+	@Autowired
+	private ItemCarrinhoService itemCarrinhoService;
 	
 	   @GetMapping("/mercado/m1")
 	    public String mostrarMercado(Model model) {
@@ -95,9 +97,10 @@ public class CarrinhoController {
 	}
 	
 	@PostMapping("/carrinho/att")
-	public String menos (@RequestBody ItemCarrinho itemCarrinho,HttpServletRequest req, HttpServletResponse res,int id,int quantidade) {
+	public String menos (HttpServletRequest req, HttpServletResponse res,int id,long idIt,int quantidade) {
 		session = req.getSession();
 		boolean achei = false;
+		ItemCarrinho itemCarrinho = itemCarrinhoService.findById(idIt);
 		for(int i=0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == id) {
 				
@@ -161,6 +164,7 @@ public class CarrinhoController {
 			}
 			
 		}
+		if(itens.size()==0){
 		if(achei == false) {
 		   ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
 		   itens.add(itemCarrinho);
@@ -169,6 +173,7 @@ public class CarrinhoController {
 		}else {
 			ItemCarrinho itemCarrinho = new ItemCarrinho(produto, 1, produto.getPreco(), 0);
 			itens.add(itemCarrinho);
+		}
 		}
 		session.setAttribute("itens", itens);
         
