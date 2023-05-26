@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -87,12 +89,12 @@ public class CarrinhoController {
 	@PostMapping("/carrinho/finish")
 	public String finish (HttpServletRequest req, HttpServletResponse res,String sts, Double valor) {
 		session = req.getSession();
-		/*int cId = (int) req.getSession().getAttribute("clienteId");
-		Cliente cliente= clienteService.findById(cId);
-		carrinho.setCliente(cliente);*/
+		Cliente cliente = clienteService.getAuthenticatedUser();
+		carrinho.setCliente(cliente);
 		carrinho.setStatusCarrinho(sts);
 		carrinho.setValor(valor);
 		carrinho.setItensCarrinho(itens);
+		carrinhoRepository.save(carrinho);
 		return "redirect:/carrinho";
 	}
 	
