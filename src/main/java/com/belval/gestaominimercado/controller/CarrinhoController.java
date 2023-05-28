@@ -95,6 +95,7 @@ public class CarrinhoController {
 		carrinho.setValor(valor);
 		carrinho.setItensCarrinho(itens);
 		carrinhoRepository.save(carrinho);
+		itens.removeAll(itens);
 		return "redirect:/carrinho";
 	}
 	
