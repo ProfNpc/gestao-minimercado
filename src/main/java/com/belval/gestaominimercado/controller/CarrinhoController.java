@@ -86,9 +86,16 @@ public class CarrinhoController {
         return "carrinho/Carrinho";
     }
 	
+	@GetMapping("/logout2")
+	public String logout2 () {
+		itens.removeAll(itens);
+		return "redirect:/logout";
+	}
+	
 	@PostMapping("/carrinho/finish")
 	public String finish (HttpServletRequest req, HttpServletResponse res,String sts, Double valor) {
-		session = req.getSession();
+		session = req.getSession(false);
+		try {
 		Cliente cliente = clienteService.getAuthenticatedUser();
 		carrinho.setCliente(cliente);
 		carrinho.setStatusCarrinho(sts);
@@ -96,6 +103,10 @@ public class CarrinhoController {
 		carrinho.setItensCarrinho(itens);
 		carrinhoRepository.save(carrinho);
 		itens.removeAll(itens);
+		}catch (Exception e) {
+			
+		}
+		
 		return "redirect:/carrinho";
 	}
 	
@@ -104,6 +115,7 @@ public class CarrinhoController {
 		session = req.getSession();
 		Produto produto = produtoService.findById(id);
 		ItemCarrinho itemCarrinho = new ItemCarrinho(idIt,produto, quantidade, produto.getPreco(), 0,produto.getPreco()*quantidade);
+		if(quantidade>0)
 	    itens.add(itemCarrinho);
 	    for(int i=0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == id) {
@@ -167,5 +179,4 @@ public class CarrinhoController {
 		
 		return "redirect:/mercado/m1";
 		}
-	
 }

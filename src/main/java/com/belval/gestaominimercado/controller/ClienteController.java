@@ -1,5 +1,9 @@
 package com.belval.gestaominimercado.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,7 +31,14 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/login")
-	public String login() {
+	public String login(HttpServletRequest req, HttpServletResponse res) {
+		
+		
+		HttpSession session = req.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		
 		return "cliente/Login";
 	}
 	/*

@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <tr th:each="produto : ${produtos}">
-            	<td><img src="https://img.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg?w=2000" alt=""
+            	<td><img th:src="${produto.image}" alt="img"
             height="50px" width="50px"></td>
                 <td th:text="${produto.nome}"></td>
                 <td th:text="${produto.preco}"></td>
@@ -39,8 +39,8 @@
     <a href="/carrinho">
     <button>Carrinho</button>
     </a>
-    <a th:href="@{/logout}">
-    <button>Logout</button>
+    <a href="/logout2">
+    <button>logout</button>
     </a>
 </body>
 

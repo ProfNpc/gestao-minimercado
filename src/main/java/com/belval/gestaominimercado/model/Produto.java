@@ -30,6 +30,8 @@ public class Produto {
 	private double preco;
 	@Column
 	private int quantidade;
+	@Column
+	private String image="https://img.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg?w=2000";
 	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	private List<ItemCarrinho> itensCarrinho = new ArrayList<>();
@@ -84,6 +86,14 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public List<ItemCarrinho> getItensCarrinho() {

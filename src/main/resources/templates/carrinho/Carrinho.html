@@ -2,13 +2,17 @@
     <table>
         <thead>
             <tr>
+            	<th>Imagem</th>
                 <th>Produto</th>
                 <th>PreçoUni</th>
                 <th>Preço</th>
+                <th>Quantidade</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="itemcarrinho : ${itens}">
+            	<td><img th:src="${itemcarrinho.produto.image}" alt="img"
+            	height="50px" width="50px"></td>
                 <td th:text="${itemcarrinho.produto.nome}"></td>
                 <td th:text="${itemcarrinho.produto.preco}"></td>
                 <td th:text="${itemcarrinho.precoTotal}"></td>
@@ -29,7 +33,7 @@
         </tbody>
         <tfoot>
      <tr>
-     <td colspan="2">Total</td>
+     <td colspan="3">Total</td>
      <td th:text="${#aggregates.sum(itens.![precoTotal])}"></td>
      </tr>
     </tfoot>
