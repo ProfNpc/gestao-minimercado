@@ -5,11 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.belval.gestaominimercado.model.Carrinho;
+import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.service.CarrinhoService;
 import com.belval.gestaominimercado.service.ClienteService;
 import com.belval.gestaominimercado.web.dto.ClienteDto;
@@ -29,6 +32,21 @@ public class ClienteController {
 	public ClienteDto userDto() {
 		return new ClienteDto();
 	}
+	
+	@GetMapping("perfil/{username}")
+	public String showPerfilForm(@PathVariable("username") String username, ModelMap model) {
+		ClienteDto userDto = new ClienteDto();
+		userDto.setEmail(username);
+		Cliente user = clienteService.findByEmail(userDto);
+		model.addAttribute("cliente", user);
+		return "cliente/Perfil";
+	}
+	@PostMapping("/perfil")
+	public String updatePerfilAccount(@ModelAttribute("cliente")ClienteDto userDto) {
+		Cliente user = clienteService.update(userDto);
+		return "redirect:/users/perfil/" + user.getEmail();
+	}
+	
 	
 	@GetMapping("/login")
 	public String login(HttpServletRequest req, HttpServletResponse res) {

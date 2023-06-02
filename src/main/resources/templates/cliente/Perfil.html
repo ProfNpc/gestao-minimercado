@@ -1,0 +1,12 @@
+<form th:action="@{/perfil}" method="post" th:object="${cliente}">
+Nome
+<input th:field="*{nome}">
+<br>
+Email
+<input th:field="*{email}">
+<br>
+Endereco
+<input th:field="*{endereco}">
+<br>
+<button type="submit">Atualizar Perfil</button>
+</form>

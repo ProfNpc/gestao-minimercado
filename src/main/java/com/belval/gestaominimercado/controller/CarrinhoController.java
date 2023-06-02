@@ -74,7 +74,9 @@ public class CarrinhoController {
 	   @GetMapping("/mercado/m1")
 	    public String mostrarMercado(Model model) {
 	      List<Produto> produtos = produtoService.listar();
-
+	      
+	       String username = clienteService.getAuthenticatedUser().getEmail();
+		   model.addAttribute("username", username);
 	       model.addAttribute("produtos", produtos);
 
 	        return "mercado/Mercado";
