@@ -50,13 +50,6 @@ public class ClienteController {
 	
 	@GetMapping("/login")
 	public String login(HttpServletRequest req, HttpServletResponse res) {
-		
-		
-		HttpSession session = req.getSession(false);
-		if(session != null) {
-			session.invalidate();
-		}
-		
 		return "cliente/Login";
 	}
 	/*

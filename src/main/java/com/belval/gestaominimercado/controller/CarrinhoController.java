@@ -89,8 +89,12 @@ public class CarrinhoController {
     }
 	
 	@GetMapping("/logout2")
-	public String logout2 () {
+	public String logout2 (HttpServletRequest req, HttpServletResponse res) {
 		itens.removeAll(itens);
+		HttpSession session = req.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
 		return "redirect:/logout";
 	}
 	
