@@ -36,7 +36,11 @@ public class AuthController {
 	}
 	@PostMapping("/cliente/cadastro")
 	public String cadastro(@ModelAttribute("cliente") ClienteDto clienteDto) {
+		try {
 		clienteService.save(clienteDto);
+		}catch (Exception e) {
+
+		}
 		return "redirect:/login";
 	}
 	

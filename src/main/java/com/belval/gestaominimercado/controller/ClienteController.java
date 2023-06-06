@@ -44,7 +44,7 @@ public class ClienteController {
 	@PostMapping("/perfil")
 	public String updatePerfilAccount(@ModelAttribute("cliente")ClienteDto userDto) {
 		Cliente user = clienteService.update(userDto);
-		return "redirect:/users/perfil/" + user.getEmail();
+		return "redirect:/perfil/" + user.getEmail();
 	}
 	
 	
