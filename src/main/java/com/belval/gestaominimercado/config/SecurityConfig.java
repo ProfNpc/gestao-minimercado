@@ -47,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(
 				"/registration**",
 				"/cliente/cadastro",
+				"/home",
 				"/api/**",
 				"/js/**",
 				"/css/**",
@@ -57,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		      .authorizeRequests().antMatchers(GET, "/mercado/**").hasAnyAuthority("ROLE_USER")
 	          .anyRequest().authenticated()
 	          .and()
-	          .formLogin().defaultSuccessUrl("/mercado/m1", true)
+	          .formLogin().defaultSuccessUrl("/home", true)
 	          .loginPage("/login")
 	          .permitAll()
 	          .and()

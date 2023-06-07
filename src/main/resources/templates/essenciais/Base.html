@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo_Menu</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!--    //////// -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/Padrao.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="#" class="logo" onclick="history.go(0)"><i class="fas fa-shopping-basket"></i>Mercados
+            Regionais<span>.</span></a>
+
+        <nav class="navbar">
+            <a href="#menu">Inicio</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#mercados">Mercados</a>
+            <a href="#categorias">Categorias</a>
+            <a href="#produtos">Produtos</a>
+            <!-- <a href="blogs">Blogs</a> -->
+            <a href="#footer">Contato</a>
+        </nav>
+
+        <!--icons topo do site-->
+
+        <div class="icons">
+
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <!-- <div class="fas fa-search" id="search-btn"></div> -->
+
+            <a href="/cliente/cadastro">
+                <div class="fa fa-pencil fa-fw" id="cart-btn"></div>
+            </a>
+
+            <a href="/login">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+            <!-- fa fa-book fa-fw -->
+
+
+        </div>
+
+        <!--barra de pesquisa-->
+
+        <form action="" class="search-form">
+            <!-- <input type="search" id="search-box" placeholder="Pesquise aqui...">
+            <label for="search-box" class="fas fa-search"></label> -->
+        </form>
+
+
+        <!--carrinho-->
+
+         <!--<div action="" class="shopping-cart">
+
+            <div class="box">
+                <h3>Entre no site</h3>
+                <div class="text-center">
+                    <p class="mt-3 mb-0">Possui uma conta? Entre <a href="/login">Entre aqui</a></p>
+                    <p class="mt-3 mb-0">Não tem uma conta? <a href="/cliente/cadastro">Clique aqui</a></p>
+                </div>
+            </div>
+            <input type="submit" vallue="login agora" class="btn" href="/login">
+            
+        </div> -->
+
+        <!--login-->
+
+        <form action="" class="login-form">
+            <h3>Entre no site</h3>
+
+            <div class="text-center">
+                <p class="mt-3 mb-0">Possui uma conta? Entre <a href="/login">Entre aqui</a></p>
+                <p class="mt-3 mb-0">Não tem uma conta? <a href="/cliente/cadastro">Clique aqui</a></p>
+            </div>
+
+            <!-- <input type="submit" vallue="login agora" class="btn" href="/login"> -->
+
+        </form>
+
+        
+    </header>
+
+
+    <!--MENU -->
+
+    <section class="menu" id="menu">
+        <div class="content">
+            <h3>Venda e Compra</h3>
+            <span>Encontre os melhores mercados perto da sua casa!</span>
+            <p></p>
+            <a href="/login" class="btn">Entre agora</a>
+        </div>
+    </section>
+
+
+    <br>
+
+    <!--SOBRE -->
+
+    <section class="sobre" id="sobre">
+        <h1 class="heading"><span>Sobre</span> o site</h1>
+        <div class="row">
+            <div class="video-container">
+                <!-- "http://techslides.com/demos/sample-videos/small.mp4" -->
+                <video src="storeeee_1.mp4" type="video" loop autoplay muted></video>
+                <h3> Melhores recomendações para você</h3>
+            </div>
+
+            <div class="content">
+                <h3>Qual o melhor para você?</h3>
+                <p>Esse site foi feito para ser uma vitrine para aqueles mercados e comercios informais que querem
+                    abramger um maior publico, atravres das platformas onlime. Adaptado tambem para o mobile em forma de
+                    aplicativo, separamo por caegortias e atributos aqules com caracteristicas parecidas, asim é m,ais
+                    facil identificar seus diferencoas e filtarr os cliente realmente interresados</p>
+                <p> Cada "mercado" tem seu proprio espaço de monstruario onde compartilha suas inbnformaçoes e
+                    produtos, parea que voce- o clienet- se informe e caso se interrese compre o que quiser. </p>
+                    <a href="/login" class="btn">Entre agora</a>
+            </div>
+    </section>
+
+    <!-- MERCADOS -->
+
+    <section class="mercados" id="mercados">
+
+        <h1 class="heading">Mercados em <span>Destaque!</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXi4WX.Food-190-512.th.png" alt="">
+                <h3>Hugão</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+
+                <a href="#sobre" class="btn">Saiba mais</a>
+            </div>
+
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hX07y0.Food-253-512.th.png" alt="">
+                <h3>Açucarados</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+
+                <a href="#sobre" class="btn">Saiba mais</a>
+            </div>
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hX06yz.Food-240-512.th.png" alt="">
+                <h3>Atacadão</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+
+                <a href="#sobre" class="btn">Saiba mais</a>
+            </div>
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXwl9F.Food-256-256.th.png" alt="">
+                <h3>Tutifrut</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+
+                <a href="#sobre" class="btn">Saiba mais</a>
+            </div>
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXi7u9.Travel-Doodle-Colors-07-256.th.png" alt="">
+                <h3>Quitanda Deserto</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+
+                <a href="#sobre" class="btn">Saiba mais</a>
+            </div>
+
+        </div>
+    </section>
+    <br><br>
+
+
+    <!-- CATEGORIAS -->
+
+    <section class="categorias" id="categorias">
+
+        <h1 class="heading">Diversas <span>Categorias</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXwYty.Food-207-256.th.png" alt="">
+                <h3>Mercearias</h3>
+                <p>Produtos 45% off</p>
+                <a href="/login" class="btn">Entre agora</a>
+            </div>
+
+            <div class="box">
+                <img src=https://cdn0.iconfinder.com/data/icons/set-02-food-colors-doodle/91/Food_60-128.png alt="">
+                <h3>Quitandas</h3>
+                <p>Produtos 45% off</p>
+                <a href="/login" class="btn">Entre agora</a>
+            </div>
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXwPRc.Food-145-512.th.png" alt="">
+                <h3>Restaurantes</h3>
+                <p>Produtos 45% off</p>
+                <a href="/login" class="btn">Entre agora</a>
+            </div>
+
+            <div class="box">
+                <img src="https://i.im.ge/2023/05/21/hXwRWF.Food-108-512.th.png" alt="">
+                <h3>Docerias</h3>
+                <p>Produtos 45% off</p>
+                <a href="/login" class="btn">Entre agora</a>
+            </div>
+
+        </div>
+
+    </section>
+    <br><br>
+
+
+    <!--  PRODUTOS -->
+
+    <section class="produtos" id="produtos">
+
+        <h1 class="heading"> Ultimos <span> PRODUTOS!</span> </h1>
+
+        <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXwFQ9.Food-230-256.th.png" alt="">
+                    <h3>Aroz</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXw7u4.Coffee-Doodle-Colors-26-128.th.png" alt="">
+                    <h3>Café</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXw0nf.Food-76-512.th.png" alt="">
+                    <h3>Limão</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXwD9C.Food-78-256.th.png" alt="">
+                    <h3>Melancia</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXwQPS.Food-289-512.th.png" alt="">
+                    <h3>Ovos</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXwMdy.Food-135-512.th.png" alt="">
+                    <h3>Queijo</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <!--  <span class="discount">-10%</span>  -->
+                    <img src="https://i.im.ge/2023/05/21/hXw9qm.Food-91-64.th.png" alt="">
+                    <h3>Pão</h3>
+                    <div class="price">R$12,99
+                        <!-- <span>R$15,99</span> -->
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="/login" class="btn">Adicionar ao carinho</a>
+                </div>
+
+            </div>
+            <!--<div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+
+        </div>
+
+    </section>
+    <br><br><br>
+
+
+    <!--ICONS -->
+
+    <section class="icons-container">
+
+        <div class="icons">
+            <img src="https://i.im.ge/2023/05/21/hXhGJ0.Maps-and-Locations-18-64.th.png" alt=""></a>
+            <div class="info">
+                <h3>Até 10 dias para o retorno</h3>
+                <span>Rembolso Garantido</span>
+            </div>
+        </div>
+
+
+        <div class="icons">
+            <img src="https://i.im.ge/2023/05/21/hXhkVp.Email-98-64.th.png" alt=""></a>
+            <div class="info">
+                <h3>Agendamento ou Pronta-entrega</h3>
+                <span>O que achar melhor</span>
+            </div>
+        </div>
+
+
+        <div class="icons">
+            <img src="https://i.im.ge/2023/05/21/hXhPDS.Ecommerce-11-256.th.png" alt="icon-4"></a>
+            <div class="info">
+                <h3>Segurança de Pagamentos</h3>
+                <span>Proteção ao pagamento</span>
+            </div>
+        </div>
+
+        <div class="icons">
+            <img src="https://i.im.ge/2023/05/21/hXhBEW.Maps-and-Locations-5-64.th.png" alt=""></a>
+            <div class="info">
+                <h3>Delivery Gratis</h3>
+                <span>Em todos os locais</span>
+            </div>
+        </div>
+
+    </section>
+    <br><br><br><br>
+
+
+    <!-- BLOGS -->
+
+
+
+    <!-- FOOTER -->
+
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Contatar<i class="fas fa-shopping-basket"></i></h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, amet.</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Informações de contato</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i>(99) 99999-0000</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i>(88) 88888-0000</a>
+                <a href="#" class="links"><i class="fas fa-envelope"></i>empresa@qualquer.com</a>
+                <a href="#" class="links"><i class="fas fa-map-marker-alt"></i>São Paulo,
+                    Brasil</a>
+            </div>
+
+            <div class="box">
+                <h3>Links Rapidos</h3>
+                <a href="#" class="links"><i class="fas fa-arow-right"></i>Início</a>
+                <a href="#" class="links"><i class="fas fa-arow-right"></i>Mercados</a>
+                <a href="#" class="links"><i class="fas fa-arow-right"></i>Categorias</a>
+                <a href="#" class="links"><i class="fas fa-arow-right"></i>Produtos</a>
+                <!-- <a href="#" class="links"><i class="fas fa-arow-right"></i>blogs</a> -->
+            </div>
+
+            <div class="box">
+                <h3>Boletim de Notícias</h3>
+                <p>Enviar E-mail</p>
+
+                <input type="email" placeholder="Digite seu email" class="email">
+                <input type="submit" value="Enviar" class="btn">
+                <img src="https://i.im.ge/2023/05/21/hXNHuD.UI-Elements-19-512.th.png" class="payment-img" alt="">
+            </div>
+
+        </div>
+
+        <div class="creditos">Criado por<span> G. N. P. S.</span> | Desenvolvimento de TCC</div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

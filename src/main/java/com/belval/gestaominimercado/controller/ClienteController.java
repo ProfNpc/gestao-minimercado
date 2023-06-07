@@ -2,16 +2,15 @@ package com.belval.gestaominimercado.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.belval.gestaominimercado.model.Carrinho;
 import com.belval.gestaominimercado.model.Cliente;
 import com.belval.gestaominimercado.service.CarrinhoService;
 import com.belval.gestaominimercado.service.ClienteService;
@@ -47,6 +46,12 @@ public class ClienteController {
 		return "redirect:/perfil/" + user.getEmail();
 	}
 	
+	@GetMapping("/home")
+	public String home(Model model){
+		String username = clienteService.getAuthenticatedUser().getEmail();
+		   model.addAttribute("username", username);
+		   return "essenciais/Base";
+	}
 	
 	@GetMapping("/login")
 	public String login(HttpServletRequest req, HttpServletResponse res) {
