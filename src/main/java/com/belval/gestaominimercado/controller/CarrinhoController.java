@@ -98,8 +98,9 @@ public class CarrinhoController {
 	}
 	
 	@PostMapping("/carrinho/finish")
-	public String finish (HttpServletRequest req, HttpServletResponse res,String sts, Double valor) {
+	public String finish (HttpServletRequest req, HttpServletResponse res,String sts, Double valor, int[] quantidade,int[] id) {
 		session = req.getSession(false);
+		
 		try {
 		Cliente cliente = clienteService.getAuthenticatedUser();
 		carrinho.setCliente(cliente);
@@ -111,7 +112,17 @@ public class CarrinhoController {
 		}catch (Exception e) {
 			
 		}
-		
+		if(quantidade.length>=0) {
+		for(int v=0;v<quantidade.length;v++) {
+			Produto produto = produtoRepository.findById(id[v]);
+			int quantidadeF = produto.getQuantidade()-quantidade[v];
+			produto.setQuantidade(quantidadeF);
+			produtoRepository.save(produto);
+			if(produto.getQuantidade()<1) {
+				produtoRepository.delete(produto);
+			}
+		}
+		}
 		return "redirect:/carrinho";
 	}
 	
@@ -119,6 +130,18 @@ public class CarrinhoController {
 	public String menos (HttpServletRequest req, HttpServletResponse res,int id,int idIt,int quantidade) {
 		session = req.getSession();
 		Produto produto = produtoService.findById(id);
+		if(quantidade>produto.getQuantidade()) {
+			int quantidadeMax = produto.getQuantidade();
+			ItemCarrinho itemCarrinho = new ItemCarrinho(idIt,produto, quantidadeMax, produto.getPreco(), 0,produto.getPreco()*quantidadeMax);
+			itens.add(itemCarrinho);
+			for(int i=0; i < itens.size(); i++) {
+				if(itens.get(i).getProduto().getId() == id) {
+						itens.remove(itens.get(i));
+					break;
+				}
+		    }
+		}
+		else {
 		ItemCarrinho itemCarrinho = new ItemCarrinho(idIt,produto, quantidade, produto.getPreco(), 0,produto.getPreco()*quantidade);
 		if(quantidade>0)
 	    itens.add(itemCarrinho);
@@ -128,6 +151,7 @@ public class CarrinhoController {
 				break;
 			}
 	    }
+		}
 		return "redirect:/carrinho";
 		
 	}

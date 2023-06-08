@@ -39,6 +39,10 @@
     </tfoot>
     </table>
     <form method="post" action="/carrinho/finish">
+    <div th:each="itemcarrinho : ${itens}">
+    <input type="hidden" th:value="${itemcarrinho.produto.id}" name="id" />
+    <input type="hidden" th:value="${itemcarrinho.quantidade}" name="quantidade" />
+    </div>
     <input type="hidden" name="sts" value="Finalizado"/>
     <input type="hidden" name="valor" th:value="${#aggregates.sum(itens.![precoTotal])}"/>
     <button type="submit">Finalizar Compra</button>

@@ -19,6 +19,23 @@ public class Admnistrador {
 	private String email;
 	@Column(name = "senha")
 	private String senha;
+	@Column(name = "cnpj")
+	private String cnpj;
+	@Column(name = "cpf")
+	private String cpf;
+	
+	public String getCnpj() {
+		return cnpj;
+	}
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	public Integer getId() {
 		return id;
 	}
