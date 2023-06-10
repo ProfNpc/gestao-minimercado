@@ -160,3 +160,53 @@
 
 </body>
 </html>
+
+<h1>Carrinho de compras</h1>
+    <table>
+        <thead>
+            <tr>
+            	<th>Imagem</th>
+                <th>Produto</th>
+                <th>PreçoUni</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="itemcarrinho : ${itens}">
+            	<td><img th:src="${itemcarrinho.produto.image}" alt="img"
+            	height="50px" width="50px"></td>
+                <td th:text="${itemcarrinho.produto.nome}"></td>
+                <td th:text="${itemcarrinho.produto.preco}"></td>
+                <td th:text="${itemcarrinho.precoTotal}"></td>
+                <td>
+                <form method="post" action="/carrinho/att">
+                <input type="number" style="width:30px" name="quantidade" th:value="${itemcarrinho.quantidade}">
+                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
+                <input type="hidden" name="idIt" th:value="${itemcarrinho.id2}"/>
+                </form>
+                </td>
+                <td>
+                <form method="post" action="/carrinho/remover">
+                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
+                <button type="submit">Remover</button>
+                </form>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+     <tr>
+     <td colspan="3">Total</td>
+     <td th:text="${#aggregates.sum(itens.![precoTotal])}"></td>
+     </tr>
+    </tfoot>
+    </table>
+    <form method="post" action="/carrinho/finish">
+    <div th:each="itemcarrinho : ${itens}">
+    <input type="hidden" th:value="${itemcarrinho.produto.id}" name="id" />
+    <input type="hidden" th:value="${itemcarrinho.quantidade}" name="quantidade" />
+    </div>
+    <input type="hidden" name="sts" value="Finalizado"/>
+    <input type="hidden" name="valor" th:value="${#aggregates.sum(itens.![precoTotal])}"/>
+    <button type="submit">Finalizar Compra</button>
+    </form>

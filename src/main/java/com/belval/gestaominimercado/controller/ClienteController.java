@@ -32,7 +32,7 @@ public class ClienteController {
 		return new ClienteDto();
 	}
 	
-	@GetMapping("perfil/{username}")
+	@GetMapping("/perfil/{username}")
 	public String showPerfilForm(@PathVariable("username") String username, ModelMap model) {
 		ClienteDto userDto = new ClienteDto();
 		userDto.setEmail(username);

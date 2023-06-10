@@ -71,6 +71,14 @@ public class CarrinhoController {
 	@Autowired
 	private ItemCarrinhoService itemCarrinhoService;
 	
+	@GetMapping("/finalizar")
+	public String Finalizar(Model model) {
+		model.addAttribute("itens", itens);
+        String username = clienteService.getAuthenticatedUser().getEmail();
+        model.addAttribute("username", username);
+		return "carrinho/Finalizar";
+	}
+	
 	   @GetMapping("/mercado/m1")
 	    public String mostrarMercado(Model model) {
 	      List<Produto> produtos = produtoService.listar();
@@ -84,6 +92,8 @@ public class CarrinhoController {
 	@GetMapping("/carrinho")
 	public String Carrinho(Model model) {
         model.addAttribute("itens", itens);
+        String username = clienteService.getAuthenticatedUser().getEmail();
+        model.addAttribute("username", username);
         return "carrinho/Carrinho";
     }
 	
@@ -112,7 +122,7 @@ public class CarrinhoController {
 		}catch (Exception e) {
 			
 		}
-		if(quantidade.length>=0) {
+		if(quantidade!=null) {
 		for(int v=0;v<quantidade.length;v++) {
 			Produto produto = produtoRepository.findById(id[v]);
 			int quantidadeF = produto.getQuantidade()-quantidade[v];
