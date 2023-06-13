@@ -79,12 +79,13 @@ public class CarrinhoController {
 		return "carrinho/Finalizar";
 	}
 	
-	   @GetMapping("/mercado/m1")
+	   @GetMapping("/mercado")
 	    public String mostrarMercado(Model model) {
 	      List<Produto> produtos = produtoService.listar();
 	      
-	       
-	       model.addAttribute("produtos", produtos);
+	      String username = clienteService.getAuthenticatedUser().getEmail();
+	      model.addAttribute("username", username); 
+	      model.addAttribute("produtos", produtos);
 
 	        return "mercado/Mercado";
 	    }
@@ -184,7 +185,7 @@ public class CarrinhoController {
 	}
 	
 	@PostMapping("/carrinho/add")
-	public String addItemSession(HttpServletRequest req, HttpServletResponse res, int id) {
+	public String addItemSession(HttpServletRequest req, HttpServletResponse res, int id,int quantidade) {
 		
 		session = req.getSession();
 		
@@ -193,8 +194,11 @@ public class CarrinhoController {
 		if(itens.size() > 0) {
 		for(int i =0; i < itens.size(); i++) {
 			if(itens.get(i).getProduto().getId() == produto.getId()) {
+				int quantProd=itens.get(i).getQuantidade();
+				if(quantidade>quantProd) {
 				itens.get(i).setQuantidade(itens.get(i).getQuantidade() + 1);
 				itens.get(i).setPrecoTotal(itens.get(i).getQuantidade()*itens.get(i).getPrecoUnitario());
+				}
 				achei = true;
 				break;
 			}else {
