@@ -13,15 +13,19 @@
 <body>
 
 <section class="cadastro" id="cadastro">
+
+  <form>
+  <input class="btn-voltar" type="button" value="<" onclick="history.go(-1)">
+  </form>
   
   <h1 class="heading">Tela de <span>Cadastro</span></h1>
        
   <form class="form" th:action="@{/cliente/cadastro}" method="post" th:object="${cliente}">
 
     <div class="box">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" name="email" th:field="*{email}" placeholder="Digite seu email">
-          <div id="email-error" class="invalid-feedback">Por favor, insira um email válido.</div>
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" name="email" th:field="*{email}" placeholder="Digite seu e-mail">
+          <div id="email-error" class="invalid-feedback">Por favor, insira um e-mail válido.</div>
     </div>
     <br>
 

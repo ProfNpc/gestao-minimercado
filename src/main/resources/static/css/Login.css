@@ -1,81 +1,81 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins: wght@100; 300;400; 500;600&display=swap');
 
-:root{
-    --blue:rgba(0, 153, 180, 0.836);
+:root {
+    --blue: rgba(0, 153, 180, 0.836);
     --dark-blue: rgba(0, 102, 85, 0.836);
-    --purple:rgba(44, 0, 102, 0.836);
-    --black:#130f40;
-    --light-color:#666;
---box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
---border:.2rem solid rgba(0,0,0,.1);
---outline:.1rem solid rgba(0,0,0,.1);
---outline-hover:.2rem solid var(--black);
+    --purple: rgba(44, 0, 102, 0.836);
+    --black: #130f40;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: .2rem solid rgba(0, 0, 0, .1);
+    --outline: .1rem solid rgba(0, 0, 0, .1);
+    --outline-hover: .2rem solid var(--black);
 }
 
-*{
-    margin: 0; padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family:'Poppins', sans-serif;
-    outline: none; border: none;
+    font-family: 'Poppins', 'sans-serif';
+    outline: none;
+    border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all .2s linear;
-    }
-    
-    html{
-       font-size: 62.5%; 
-       scroll-behavior: smooth;
-       scroll-padding-top: 7rem;
-       overflow-x: hidden;
-    }
+}
 
-    body{
-        background: #eee;
-    }
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    overflow-x: hidden;
+}
+
+body {
+    background: #eee;
+}
 
 
-    section{
-        padding: 2rem 9%;
-    } 
+section {
+    padding: 2rem 9%;
+}
 
-    .heading{
-        text-align: center;
-        padding: 2rem 0;
-        padding-bottom: 3rem;
-        font-size: 3.5rem;
-        color: var(--black);
-    }
+.heading {
+    text-align: center;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+    font-size: 3.5rem;
+    color: var(--black);
+}
 
-    
-    .heading span{
-        background: var(--blue);
-        color: #fff;
-        display: inline-block;
-        padding: .5rem 3rem;
-        clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
-    }
 
-    .btn{
-        margin-top: 1rem;
-        display: inline-block;
-        background: #333;
-        padding:.8rem 3rem;
-        font-size: 1.7rem;
-        border-radius: .5rem;
-        border: .2rem solid var(--black);
-        color:#fff;
-        cursor: pointer;
-        /* background: none;*/
-    }
+.heading span {
+    background: var(--blue);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
 
-    .btn:hover{
-        background: var(--blue);
-        color:#fff;
-    }
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    background: #333;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    border: .2rem solid var(--black);
+    color: #fff;
+    cursor: pointer;
+}
 
-   /*  LOGIN */
-    
-    .login {
+.btn:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+/*  LOGIN */
+
+.login {
     font-size: 2.5rem;
     box-shadow: var(--box-shadow);
     padding: 5rem;
@@ -84,52 +84,63 @@
     top: 50%;
     left: 50%;
     position: absolute;
-    transform: translate(-50%,-50%);
-   }
+    transform: translate(-50%, -50%);
+}
 
-   .login .form-control{
+.login .form-control {
     font-size: 1.5rem;
-    color:var(--light-color); 
+    color: var(--light-color);
     padding: 1.5rem;
-    height: .5rem;
+    height: 5rem;
     width: 45rem;
-    }
+}
 
-    .login .form br{
+.login .form br {
     line-height: 10%;
-    }
-   
-   
-   .login .box{
-   font-size: 2rem;
-   text-transform: uppercase;
-   color: var(--black);
-   padding: .5rem 0;
-   }
-   
-   .login p{
-       font-size: 1.4rem;
-       padding: .5rem 0;
-       color: var(--light-color);
-   }
-   
-   .login .form p a{
-   color: var(--blue);
-   text-decoration: underline;
-   }
-   
-   .login .form{
-       height: 4.530rem;
-       width: 85rem;
-   }
-   
-   
-   .login .btn{
-       align-items: center;
-   }
-   
-   
-   .login h3{
-       text-transform: uppercase;
-       color: var(--black);
-   }
+}
+
+
+.login .box {
+    font-size: 2rem;
+    color: var(--black);
+    padding: .5rem 0;
+}
+
+.login p {
+    font-size: 1.4rem;
+    padding: .5rem 0;
+    color: var(--light-color);
+}
+
+.login .form p a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.login .form {
+    height: 4.530rem;
+    width: 85rem;
+}
+
+
+.login .btn {
+    align-items: center;
+}
+
+.btn-voltar{
+    margin-top: 1rem;
+    display: inline-block;
+    background: #333;
+    padding: .1rem 1rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    border: .2rem solid var(--black);
+    color: #fff;
+    cursor: pointer;
+    position: top;
+}
+
+.btn-voltar:hover {
+    background: var(--blue);
+    color: #fff;
+}
