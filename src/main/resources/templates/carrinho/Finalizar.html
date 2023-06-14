@@ -22,23 +22,17 @@
 
         <div class="row">
 
-            <form action="" method="POST">
+            <form>
                 <h3>Informações</h3>
 
                 <div class="flex">
 
-                    <div class="box">
-                        <p>Nome de usuário<span>*</span></p>
-                        <input type="text" name="name" required maxlength="50" placeholder="Digite seu username" class="input">
-
+                    <div class="box" th:object="${cliente}">
                         <p>Número de telefone<span></span>*</p>
                         <input type="number" name="number" required maxlength="10" placeholder="Digite seu número de celular" class="input" min="0" max="9999999999">
 
-                        <p>E-mail <span>*</span></p>
-                        <input type="email" name="email" required maxlength="50" placeholder="Digite seu e-mail" class="input">
-
                         <p>Chave-pix <span>*</span></p>
-                        <input type="number" name="number" required maxlength="10" placeholder="Digite sua chave-pix" class="input" min="0" max="9999999999">
+                        <p>xxxxxxxxxxxxxxxx</p>
 
                     </div>
 
@@ -52,26 +46,16 @@
                         <p>Cidade <span>*</span></p>
                         <input type="text" name="city" required maxlength="50" placeholder="Digite sua cidade" class="input">
 
-                        <p>País<span>*</span></p>
-                        <input type="text" name="country" required maxlength="50" placeholder="Digite seu país" class="input">
-
                         <!-- <p>Codigo do usuário<span>*</span></p>
                         <input type="number" name="pin_code" required maxlength="6" placeholder="Por exemplo 123456" class="input" min="0" max="999999"> -->
                     </div>
 
                 </div>
 
-                <form method="post" action="/carrinho/finish">
-    			<div th:each="itemcarrinho : ${itens}">
-    		<input type="hidden" th:value="${itemcarrinho.produto.id}" name="id" />
-    		<input type="hidden" th:value="${itemcarrinho.quantidade}" name="quantidade" />
-    		</div>
-    		<input type="hidden" name="sts" value="Finalizado"/>
-    		<input type="hidden" name="valor" th:value="${#aggregates.sum(itens.![precoTotal])}"/>
-    		<button type="submit">Finalizar Compra</button>
-    </form>
+                
             </form>
-
+            
+            
             <div class="resumo">
                 <h3 class="title">Carrinho</h3>
 
@@ -84,6 +68,15 @@
                 </div>
                 
                 <div class="grand-total"><span >Soma total :</span><p class="price" th:text="${#aggregates.sum(itens.![precoTotal])}"><i class="fa-solid fa-brazilian-real-sign"> 12,00</i></p></div>
+                <form method="post" action="/carrinho/finish">
+    			<div th:each="itemcarrinho : ${itens}">
+    		<input type="hidden" th:value="${itemcarrinho.produto.id}" name="id" />
+    		<input type="hidden" th:value="${itemcarrinho.quantidade}" name="quantidade" />
+    		</div>
+    		<input type="hidden" name="sts" value="Finalizado"/>
+    		<input type="hidden" name="valor" th:value="${#aggregates.sum(itens.![precoTotal])}"/>
+    		<button type="submit" class="btn">Finalizar Compra</button>
+    </form>
              </div>
 
         </div>

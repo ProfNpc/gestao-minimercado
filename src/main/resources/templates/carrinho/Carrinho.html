@@ -29,9 +29,8 @@
 
         <nav class="navbar">
             <a href="/home">Início</a>
-            <a href="Mercados.html">Categorias</a>
-            <a href="Mercados.html">Mercados</a>
-            <a href="#contato">Contato</a>
+            <a href="/home#mercados">Mercados</a>
+            <a href="#footer">Contato</a>
         </nav>
 
         <!--icons topo do site-->
@@ -66,7 +65,7 @@
 
         <div class="box-container" th:each="itemcarrinho : ${itens}">
 
-            <form action="" method="POST" class="box">
+            <div class="box">
 
                 <input type="hidden" value="">
                 <img th:src="${itemcarrinho.produto.image}" class="image" alt="img">
@@ -90,7 +89,7 @@
                 <button type="submit" class="btn-delete">Remover</button>
                 </form>
 
-            </form>
+            </div>
         </div>
 
         <div class="cart-total">
@@ -136,10 +135,8 @@
 
             <div class="box">
                 <h3>Links Rapidos</h3>
-                <a href="Mercados.html" class="links"><i class="fas fa-arow-right"></i>Início</a>
-                <a href="Mercados.html" class="links"><i class="fas fa-arow-right"></i>Mercados</a>
-                <a href="Mercados.html" class="links"><i class="fas fa-arow-right"></i>Categorias</a>
-                <a href="Mercados.html" class="links"><i class="fas fa-arow-right"></i>Produtos</a>
+                <a href="/home" class="links"><i class="fas fa-arow-right"></i>Início</a>
+                <a href="/home#mercados" class="links"><i class="fas fa-arow-right"></i>Mercados</a>
                 <!-- <a href="#" class="links"><i class="fas fa-arow-right"></i>blogs</a> -->
             </div>
 

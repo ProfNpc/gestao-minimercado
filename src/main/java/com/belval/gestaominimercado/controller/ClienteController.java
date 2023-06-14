@@ -50,7 +50,12 @@ public class ClienteController {
 	public String home(Model model){
 		String username = clienteService.getAuthenticatedUser().getEmail();
 		   model.addAttribute("username", username);
-		   return "essenciais/Base";
+		   return "essenciais/Menu";
+	}
+	
+	@GetMapping("/inicio")
+	public String inicio(Model model) {
+		return "essenciais/Base";
 	}
 	
 	@GetMapping("/login")

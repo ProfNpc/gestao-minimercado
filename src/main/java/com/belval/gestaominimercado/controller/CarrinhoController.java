@@ -13,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ import com.belval.gestaominimercado.service.CarrinhoService;
 import com.belval.gestaominimercado.service.ClienteService;
 import com.belval.gestaominimercado.service.ItemCarrinhoService;
 import com.belval.gestaominimercado.service.ProdutoService;
+import com.belval.gestaominimercado.web.dto.ClienteDto;
 
 @Controller
 
@@ -79,7 +81,7 @@ public class CarrinhoController {
 		return "carrinho/Finalizar";
 	}
 	
-	   @GetMapping("/mercado")
+	   @GetMapping("/mercado/m1")
 	    public String mostrarMercado(Model model) {
 	      List<Produto> produtos = produtoService.listar();
 	      
@@ -134,7 +136,7 @@ public class CarrinhoController {
 			}
 		}
 		}
-		return "redirect:/carrinho";
+		return "redirect:/home";
 	}
 	
 	@PostMapping("/carrinho/att")
