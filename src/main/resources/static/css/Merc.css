@@ -1,0 +1,43 @@
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://i.im.ge/2023/06/10/iuVXtD.Aesthetic-Grid-Wallpaper-for-Desktop.th.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 17rem;
+    border-radius: 0 0 20px 20px;
+    padding-bottom: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.menu .content {
+    text-align: center;
+    width: 60rem;
+}
+
+
+.menu .content h3 {
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.menu .content h3 span {
+    color: var(--black);
+}
+
+.menu .content span {
+    font-size: 3.5rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+    line-height: 1.5;
+}
+
+.menu .content p {
+    font-size: 1.7rem;
+    color: var(--black);
+    padding: 1rem 0;
+    line-height: 1.8;
+}
