@@ -1,3 +1,10 @@
+
+:root {
+    --pink: rgba(151, 53, 155, 0.836);
+    --red: rgba(155, 82, 53, 0.836);
+    --yellow: rgba(155, 119, 53, 0.836);
+}
+
 .menu {
     display: flex;
     align-items: center;
@@ -41,3 +48,117 @@
     padding: 1rem 0;
     line-height: 1.8;
 }
+
+
+.heading {
+    text-align: center;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+    font-size: 3.5rem;
+    color: var(--black);
+}
+
+/* MERCEARIA */
+.heading span {
+    background: var(--blue);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.heading, .alternativos ,.mercearias ,.quitandas ,.restaurantes {
+    text-align: center;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+    font-size: 3.5rem;
+    color: var(--black);
+}
+
+.heading span,.alternativos span,.mercearias span, .quitandas span,.restaurantes span {
+    background: var(--blue);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.mercearias span{
+    background: var(--purple);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.quitandas span {
+    background: var(--dark-blue);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.restaurantes span {
+    background: var(--red);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.alternativos span {
+    background: var(--yellow);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+
+
+/* categ */
+
+.categ {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1.5rem;
+}
+
+.categ .box-container .content {
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    outline: var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+}
+
+.categ .box-container .content:hover {
+    outline: var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+/* .categ .box-container .content h3 {
+    font-size: 2rem;
+    color: var(--black);
+    line-height: 1.8;
+} */
+
+.categ .box-container .content p {
+    font-size: 1.7rem;
+    color: var(--light-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+/* 
+.categ h3 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    background: var(--blue);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+} */

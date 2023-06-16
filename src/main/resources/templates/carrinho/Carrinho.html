@@ -2,19 +2,15 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho_Compras</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <!--    //////// -->
+    <title>Sessão dos Minimercados</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--    //////// -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/css/Carrinho_compras.css">
     <link rel="stylesheet" type="text/css" href="/css/Padrao.css">
     <link rel="stylesheet" type="text/css" href="/css/Base.html">
@@ -25,11 +21,15 @@
 
     <header>
 
-        <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Mercados Regionais<span>.</span></a>
+        <a href="#" class="logo" onclick="history.go(0)"><i class="fas fa-shopping-basket"></i>Mercados
+            Regionais<span></span></a>
+            
 
         <nav class="navbar">
             <a href="/home">Início</a>
+            <a href="/home#categ">Categorias</a>
             <a href="/home#mercados">Mercados</a>
+            <a href="/home#sobre">Sobre</a>
             <a href="#footer">Contato</a>
         </nav>
 
@@ -72,28 +72,33 @@
                 <h3 class="name" th:text="${itemcarrinho.produto.nome}">Café</h3>
 
                 <div class="flex">
-                    <p class="price" th:text="${itemcarrinho.produto.preco}"><i class="fa-solid fa-brazilian-real-sign"> 12,00</i></p>
+                    <p class="price" th:text="${itemcarrinho.produto.preco}"><i class="fa-solid fa-brazilian-real-sign">
+                            12,00</i></p>
                     <form method="post" action="/carrinho/att">
-                    <input type="number" th:value="${itemcarrinho.quantidade}" name="quantidade" required class="qty">
-                    <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
-                	<input type="hidden" name="idIt" th:value="${itemcarrinho.id2}"/>
-                    <button type="submit" class="fas fa-edit"></button>
-                	</form>
+                        <input type="number" th:value="${itemcarrinho.quantidade}" name="quantidade" required
+                            class="qty">
+                        <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}" />
+                        <input type="hidden" name="idIt" th:value="${itemcarrinho.id2}" />
+                        <button type="submit" class="fas fa-edit"></button>
+                    </form>
                     <!-- salva a mudança -->
                 </div>
 
-                <p class="sub-total">Soma total :<span th:text="${itemcarrinho.precoTotal}"> <i class="fa-solid fa-brazilian-real-sign"> 12,00</i></span></p>
-                
+                <p class="sub-total">Soma total :<span th:text="${itemcarrinho.precoTotal}"> <i
+                            class="fa-solid fa-brazilian-real-sign"> 12,00</i></span></p>
+
                 <form method="post" action="/carrinho/remover">
-                <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}"/>
-                <button type="submit" class="btn-delete">Remover</button>
+                    <input type="hidden" name="id" th:value="${itemcarrinho.produto.id}" />
+                    <button type="submit" class="btn-delete">Remover</button>
                 </form>
 
             </div>
+
         </div>
 
         <div class="cart-total">
-            <p>Total : <span th:text="${#aggregates.sum(itens.![precoTotal])}"><i class="fa-solid fa-brazilian-real-sign"> 12,00</i></span></p>
+            <p>Total : <span th:text="${#aggregates.sum(itens.![precoTotal])}"><i
+                        class="fa-solid fa-brazilian-real-sign"> 12,00</i></span></p>
 
             <!--<form action="" method="POST">
                 <input type="submit" value="Deletar carrinho" name="" class="btn-delete"
@@ -115,45 +120,34 @@
 
             <div class="box">
                 <h3>Contatar<i class="fas fa-shopping-basket"></i></h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, amet.</p>
-                <!-- <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                </div -->
+                <p>Caso queira entrar em contato para reportar algum erro, fazer perguntas ou mandar sujestões, sinta-se
+                    atento para os seguintes metodos de contato:</p>
             </div>
 
             <div class="box">
                 <h3>Informações de contato</h3>
                 <a href="#" class="links"><i class="fas fa-phone"></i>(99) 99999-0000</a>
                 <a href="#" class="links"><i class="fas fa-phone"></i>(88) 88888-0000</a>
-                <a href="#" class="links"><i class="fas fa-envelope"></i>empresa@qualquer.com</a>
+                <a href="#" class="links"><i class="fas fa-envelope"></i>gestaomini@gmerc.com</a>
                 <a href="#" class="links"><i class="fas fa-map-marker-alt"></i>São Paulo,
                     Brasil</a>
             </div>
 
             <div class="box">
                 <h3>Links Rapidos</h3>
-                <a href="/home" class="links"><i class="fas fa-arow-right"></i>Início</a>
-                <a href="/home#mercados" class="links"><i class="fas fa-arow-right"></i>Mercados</a>
-                <!-- <a href="#" class="links"><i class="fas fa-arow-right"></i>blogs</a> -->
+                <a href="/home#menu" class="links"><i class="fa-solid fa-share"></i>Início</a>
+                <a href="/home#categ" class="links"><i class="fa-solid fa-share"></i>Categorias</a>
+                <a href="/home#mercados" class="links"><i class="fa-solid fa-share"></i>Mercados</a>
+                <a href="/home#sobre" class="links"><i class="fa-solid fa-share"></i>Sobre</a>
             </div>
 
-            <!-- <div class="box">
-                <h3>Boletim de Notícias</h3>
-                <p>Enviar E-mail</p>
-                <input type="email" placeholder="Digite seu email" class="email">
-                <input type="submit" value="Enviar" class="btn">
-                <img src="https://i.im.ge/2023/05/21/hXNHuD.UI-Elements-19-512.th.png" class="payment-img" alt="">
-            </div> -->
         </div>
-
-        <div class="creditos">Criado por<span> G. N. P. S.</span> | Desenvolvimento de TCC</div>
+        <div class="creditos">Criado por<span> G. N. P. S.</span> / Desenvolvimento de TCC</div>
     </section>
 
     <script src="/js/https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="/js/scriptCar.js"></script>
 
 </body>
+
 </html>
