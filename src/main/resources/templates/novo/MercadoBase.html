@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercado</title>
+    <title>Perfil Tutti Frutti</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <!--    //////// -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/PerfilM.css">
+    <link rel="stylesheet" href="PerfilM.css">
 </head>
 
 <body>
@@ -90,17 +90,19 @@
 
     <section class="produtos" id="produtos">
 
-        <h1 class="heading"><span>Produtos</span></h1>
+        <h1 class="heading"><span>Alimentação</span></h1>
 
         <div class="swiper product-slider">
 
             <div class="swiper-wrapper">
 
-                <div class="swiper-slide box" th:each="produto : ${produtos}">
-                    <img th:src="${produto.image}" alt="img">
-					<h3 th:text="${produto.nome}">Aroz</h3>
-					<div class="price" th:text="${produto.preco}">R$12,99
+                <div class="swiper-slide box">
+                    <img src="https://i.im.ge/2023/05/21/hXwFQ9.Food-230-256.th.png" alt="">
+                    <h3>Arroz</h3>
+                    <div class="price">R$12.99
+                        <span>/ Estoque: 2</span>
                     </div>
+                    <input type="number" name="qty" required min="1" value="" max="99" maxlength="2" class="qty">
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -108,13 +110,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    
-                    <form th:action="@{/carrinho/add}" method="post">
-                    <input type="hidden" th:name="quantidade" th:value="${produto.quantidade}"/>
-                        <input type="hidden" th:name="id" th:value="${produto.id}"/>
-                        <input type="hidden" th:name="preco" th:value="${produto.preco}"/>
-                        <button type="submit" class="btn">Comprar</button>
-                    </form>
+                    <a href="Finalizar.html" class="btn">Comprar agora</a>
+                    <a href="Carrinho_compras.html" class="btn">Adicionar ao Carrinho</a>
                 </div>
                 </div>
             </div>
@@ -156,7 +153,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="/js/scriptM.js"></script>
+    <script src="scriptM.js"></script>
 </body>
 
 </html>
+<form th:action="@{/carrinho/add}" method="post">
+                    <input type="hidden" th:name="quantidade" th:value="${produto.quantidade}"/>
+                        <input type="hidden" th:name="id" th:value="${produto.id}"/>
+                        <input type="hidden" th:name="preco" th:value="${produto.preco}"/>
+                        <button type="submit">Comprar</button>
+                    </form>

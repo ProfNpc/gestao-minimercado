@@ -1,12 +1,67 @@
-<form th:action="@{/perfil}" method="post" th:object="${cliente}">
-Nome
-<input th:field="*{nome}">
-<br>
-Email
-<input th:field="*{email}">
-<br>
-Endereco
-<input th:field="*{endereco}">
-<br>
-<button type="submit">Atualizar Perfil</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/Perfil.css">
+</head>
+
+
+
+<body>
+    <section class="seccion-perfil-usuario">
+
+        <div class="perfil-usuario-header">
+
+            <div class="perfil-usuario-pagina">
+
+                <div class="perfil-usuario-avatar">
+                    <img src="https://i.im.ge/2023/06/16/iNw1J0.user.jpg" alt="imgP">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="perfil-usuario-body" th:object="${cliente}">
+
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo" th:text="*{nome}">Username</h3>
+                <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="perfil-usuario-footer">
+
+                <h3 class="titulo">Informações do Usuario</h3>
+
+                <ul class="lista-dados">
+                    <form th:action="@{/perfil}" method="post">
+                    <li><input class="icon fas fa-phone-alt" th:field="*{nome}"></input> Username</li>
+                    <li><input class="icon fas fa-building icon fas fa-share-alt" th:field="*{email}"></input> E-mail</li>
+                    <li><input class="icon fas fa-map-marker-alt" th:field="*{endereco}"></input> endereco</li>
+                    <button class="btn">atualizar</button>
+                    </form>
+                </ul>
+
+            </div>
+        </div>
+
+        <form>
+            <input class="btn" type="button" value="Sair">
+            <!-- <input type="button" value="Atualizar" onclick="history.go(0)"> -->
+        </form>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>
