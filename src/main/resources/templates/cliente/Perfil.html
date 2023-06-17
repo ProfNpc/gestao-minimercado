@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +9,6 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/Perfil.css">
 </head>
-
-
 
 <body>
     <section class="seccion-perfil-usuario">
@@ -23,6 +20,10 @@
                 <div class="perfil-usuario-avatar">
                     <img src="https://i.im.ge/2023/06/16/iNw1J0.user.jpg" alt="imgP">
                 </div>
+
+                <form>
+                    <input class="btn-voltar" type="button" style="margin-left: auto; margin-top: 1em; display: block; width: 1; height: 1;" value="<" onclick="history.go(-1)">
+                </form>
 
             </div>
 
@@ -38,24 +39,23 @@
 
             <div class="perfil-usuario-footer">
 
-                <h3 class="titulo">Informações do Usuario</h3>
+                <h3 class="titulo" style="text-align: center;border: 1px;">Informações do Usuário</h3>
 
-                <ul class="lista-dados">
+                <ul class="lista-dados" style="width: 100%; border: 1px; align-items: center;">
                     <form th:action="@{/perfil}" method="post">
-                    <li><input class="icon fas fa-phone-alt" th:field="*{nome}"></input> Username</li>
-                    <li><input class="icon fas fa-building icon fas fa-share-alt" th:field="*{email}"></input> E-mail</li>
-                    <li><input class="icon fas fa-map-marker-alt" th:field="*{endereco}"></input> endereco</li>
-                    <button class="btn">atualizar</button>
+                        <li><i class="icon fas fa-user-alt"> Username</i><input th:field="*{nome}"></input></li>
+                        <li><i class="icon fas fa-building icon fas fa-share-alt"> E-mail</i><input th:field="*{email}"></input></li>
+                        <li><i class="icon fas fa-map-marker-alt"> Endereço</i><input th:field="*{endereco}"></input></li>
+                        <button type="submit" class="btn"
+                 style="margin-right: auto; margin-top: 1em; display: block; margin-bottom: 1em; width: 1; height: 1;"><i class="fas fa-edit"></i>
+                </button>
                     </form>
                 </ul>
 
+                
+
             </div>
         </div>
-
-        <form>
-            <input class="btn" type="button" value="Sair">
-            <!-- <input type="button" value="Atualizar" onclick="history.go(0)"> -->
-        </form>
 
     </section>
 
