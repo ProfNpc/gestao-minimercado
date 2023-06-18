@@ -33,7 +33,7 @@ public class Produto {
 	@Column
 	private String image="https://img.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg?w=2000";
 	
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemCarrinho> itensCarrinho = new ArrayList<>();
 
 	public Produto(int id, String nome, String descricao, double preco) {

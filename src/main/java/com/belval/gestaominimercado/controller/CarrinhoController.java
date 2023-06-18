@@ -122,19 +122,19 @@ public class CarrinhoController {
 		carrinho.setItensCarrinho(itens);
 		carrinhoRepository.save(carrinho);
 		itens.removeAll(itens);
+		if(quantidade!=null) {
+			for(int v=0;v<quantidade.length;v++) {
+				Produto produto = produtoRepository.findById(id[v]);
+				int quantidadeF = produto.getQuantidade()-quantidade[v];
+				produto.setQuantidade(quantidadeF);
+				produtoRepository.save(produto);
+				if(produto.getQuantidade()<1) {
+					produtoRepository.delete(produto);
+				}
+			}
+			}
 		}catch (Exception e) {
 			
-		}
-		if(quantidade!=null) {
-		for(int v=0;v<quantidade.length;v++) {
-			Produto produto = produtoRepository.findById(id[v]);
-			int quantidadeF = produto.getQuantidade()-quantidade[v];
-			produto.setQuantidade(quantidadeF);
-			produtoRepository.save(produto);
-			if(produto.getQuantidade()<1) {
-				produtoRepository.delete(produto);
-			}
-		}
 		}
 		return "redirect:/home";
 	}
